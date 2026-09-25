@@ -15,8 +15,7 @@ public class CameraManager : MonoBehaviour
     private Camera _camera;
 
     private float _targetZoom;
-    private Vector2 _targetPosition;
-
+    private Vector3 _targetPosition;
 
     private void Start()
     {
@@ -38,11 +37,15 @@ public class CameraManager : MonoBehaviour
 
     private void HandleZoom()
     {
-        float scrollInput = MouseManager.ScrollDelta;
+        float scrollInput =
+            MouseManager.ScrollDelta;
 
         if (Mathf.Abs(scrollInput) > 0.01f)
         {
-            float zoomAmount = scrollInput * _zoomSensitivity * _targetZoom;
+            float zoomAmount =
+                scrollInput *
+                _zoomSensitivity *
+                _targetZoom;
 
             _targetZoom -= zoomAmount;
 
@@ -71,7 +74,13 @@ public class CameraManager : MonoBehaviour
             (_camera.orthographicSize * 2f) /
             Screen.height;
 
-        _targetPosition -= _moveSensitivity * worldUnitsPerPixel * MouseManager.MouseScreenPositionDelta;
+        Vector2 movement =
+            _moveSensitivity *
+            worldUnitsPerPixel *
+            MouseManager.MouseScreenPositionDelta;
+
+        _targetPosition -=
+            (Vector3)movement;
     }
 
     private void SmoothCameraMovement()
