@@ -11,6 +11,18 @@ public class MouseCollider : MonoBehaviour
     public event Action OnMouseExit;
     public event Action OnMouseStay;
 
+    public Vector2 Size
+    {
+        get => _size;
+        set => _size = value;
+    }
+
+    public Vector2 Offset
+    {
+        get => _offset;
+        set => _offset = value;
+    }
+
     public Bounds Bounds
     {
         get
@@ -41,4 +53,7 @@ public class MouseCollider : MonoBehaviour
         if (isColliding)
             OnMouseStay?.Invoke();
     }
+
+    public bool Intersects(Bounds otherBounds) =>
+        Bounds.Intersects(otherBounds);
 }

@@ -1,50 +1,37 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(MouseCollider))]
-public class GridDraggable : MonoBehaviour
+public class GridDraggable : MonoBehaviour, IDraggable
 {
     [SerializeField] private float _gridSize = 1f;
     [SerializeField] private Vector2 _gridOffset = new(0.5f, 0.5f);
     [SerializeField] private float _smoothSpeed = 15f;
 
-    private MouseCollider _mouseCollider;
-
-    private bool _isDragging;
+    public bool IsDragging { get; private set; }
 
     private Vector2 _realPosition;
     private Vector2 _targetPosition;
 
     private void Awake()
     {
-        _mouseCollider = GetComponent<MouseCollider>();
-
         _realPosition = transform.position;
         _targetPosition = transform.position;
     }
 
     private void Update()
     {
-        RefreshIsDragging();
         RefreshTargetPosition();
         UpdateTargetPosition();
         UpdatePosition();
     }
+    public void StartDragging() =>
+    IsDragging = true;
 
-    private void RefreshIsDragging()
-    {
-        if (MouseManager.LeftButtonDown &&
-            _mouseCollider.IsColliding)
-        {
-            _isDragging = true;
-        }
-
-        if (MouseManager.LeftButtonUp)
-            _isDragging = false;
-    }
+    public void StopDragging() =>
+        IsDragging = false;
 
     private void RefreshTargetPosition()
     {
-        if (_isDragging)
+        if (IsDragging)
             _realPosition += MouseManager.MouseWorldPositionDelta;
     }
 

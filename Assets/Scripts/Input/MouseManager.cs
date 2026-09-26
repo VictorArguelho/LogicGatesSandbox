@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class MouseManager : MonoBehaviour
 {
@@ -10,21 +11,12 @@ public class MouseManager : MonoBehaviour
     private static Vector2 _lastWorldPosition;
     private static Vector2 _currentWorldPosition;
 
-    private void Awake() =>
-        _camera = Camera.main;
-
-    private void Update()
-    {
-        _lastScreenPosition = _currentScreenPosition;
-        _currentScreenPosition = Input.mousePosition;
-
-        _lastWorldPosition = _currentWorldPosition;
-        _currentWorldPosition =
-            _camera.ScreenToWorldPoint(_currentScreenPosition);
-    }
+    public static event Action<MouseButtonCode> OnButtonDown;
+    public static event Action<MouseButtonCode> OnButtonUp;
+    public static event Action<MouseButtonCode> OnButtonPressed;
 
     public static Vector2 MouseScreenPosition =>
-    _currentScreenPosition;
+        _currentScreenPosition;
     public static Vector2 MouseScreenPositionDelta =>
         _currentScreenPosition - _lastScreenPosition;
 
@@ -46,4 +38,40 @@ public class MouseManager : MonoBehaviour
     public static bool MiddleButtonPressed => Input.GetMouseButton(2);
 
     public static float ScrollDelta => Input.GetAxis("Mouse ScrollWheel");
+
+    private void Awake() =>
+        _camera = Camera.main;
+
+    private void Update()
+    {
+        UpdateMousePosition();
+        UpdateMouseButtons();
+    }
+
+    private void UpdateMousePosition()
+    {
+        _lastScreenPosition = _currentScreenPosition;
+        _currentScreenPosition = Input.mousePosition;
+
+        _lastWorldPosition = _currentWorldPosition;
+        _currentWorldPosition =
+            _camera.ScreenToWorldPoint(_currentScreenPosition);
+    }
+
+    private void UpdateMouseButtons()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            var button = (MouseButtonCode)i;
+
+            if (Input.GetMouseButtonDown(i))
+                OnButtonDown?.Invoke(button);
+
+            if (Input.GetMouseButtonUp(i))
+                OnButtonUp?.Invoke(button);
+
+            if (Input.GetMouseButton(i))
+                OnButtonPressed?.Invoke(button);
+        }
+    }
 }
