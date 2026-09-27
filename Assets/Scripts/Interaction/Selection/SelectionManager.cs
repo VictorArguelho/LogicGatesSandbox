@@ -38,6 +38,9 @@ public static class SelectionManager
 
     private static void HandleMouseClick(MouseButtonCode button)
     {
+        if (MouseManager.IsPointerOverUI)
+            return;
+
         if (button != MouseButtonCode.Left)
             return;
 

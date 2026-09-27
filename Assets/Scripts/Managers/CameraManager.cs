@@ -40,7 +40,7 @@ public class CameraManager : MonoBehaviour
         float scrollInput =
             MouseManager.ScrollDelta;
 
-        if (Mathf.Abs(scrollInput) > 0.01f)
+        if (Mathf.Abs(scrollInput) > 0.01f && !MouseManager.IsPointerOverUI)
         {
             float zoomAmount =
                 scrollInput *

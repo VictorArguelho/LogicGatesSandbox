@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MouseManager : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class MouseManager : MonoBehaviour
         _currentWorldPosition;
     public static Vector2 MouseWorldPositionDelta =>
         _currentWorldPosition - _lastWorldPosition;
+
+    public static bool IsPointerOverUI =>
+        EventSystem.current != null &&
+        EventSystem.current.IsPointerOverGameObject();
 
     public static bool LeftButtonDown => Input.GetMouseButtonDown(0);
     public static bool RightButtonDown => Input.GetMouseButtonDown(1);

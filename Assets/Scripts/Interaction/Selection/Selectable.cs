@@ -24,6 +24,9 @@ public class Selectable : MonoBehaviour
         if (State == SelectionState.Selected)
             return;
 
+        if (MouseManager.IsPointerOverUI)
+            return;
+
         if (IsMouseOver && State == SelectionState.Default)
             State = SelectionState.MouseOver;
 
