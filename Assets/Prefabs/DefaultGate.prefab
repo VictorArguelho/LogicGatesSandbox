@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 145997629875837512}
   - component: {fileID: 3909309852333324748}
   - component: {fileID: 8481699161007928215}
+  - component: {fileID: 451581591277256094}
   m_Layer: 0
   m_Name: Out
   m_TagString: Untagged
@@ -270,7 +271,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -137828615955225665, guid: 097aec99816e6094b8196d4d46bf33cf, type: 3}
+  m_Sprite: {fileID: -6521863873616536221, guid: c11772bdd225466478a6b1bdce93d35f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -331,6 +332,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deletable
   _canBeDeletedByUser: 0
+--- !u!114 &451581591277256094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030854113669843270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa7f7498484203e458f4e3945e0212d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PortAppearance
+  _offSprite: {fileID: -6521863873616536221, guid: c11772bdd225466478a6b1bdce93d35f, type: 3}
+  _onSprite: {fileID: -262505974656634397, guid: dc4d2bb3fbfe1564bb6b65a199db2b9f, type: 3}
 --- !u!1 &7289153959843833148
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +360,7 @@ GameObject:
   - component: {fileID: 1246836140497926899}
   - component: {fileID: 4110776395118127557}
   - component: {fileID: 6719685079927624732}
+  - component: {fileID: 2691255794374592666}
   m_Layer: 0
   m_Name: In_B
   m_TagString: Untagged
@@ -416,7 +432,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -137828615955225665, guid: 097aec99816e6094b8196d4d46bf33cf, type: 3}
+  m_Sprite: {fileID: -6521863873616536221, guid: c11772bdd225466478a6b1bdce93d35f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -477,6 +493,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deletable
   _canBeDeletedByUser: 0
+--- !u!114 &2691255794374592666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7289153959843833148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa7f7498484203e458f4e3945e0212d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PortAppearance
+  _offSprite: {fileID: -6521863873616536221, guid: c11772bdd225466478a6b1bdce93d35f, type: 3}
+  _onSprite: {fileID: -262505974656634397, guid: dc4d2bb3fbfe1564bb6b65a199db2b9f, type: 3}
 --- !u!1 &9064218179489265509
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +521,7 @@ GameObject:
   - component: {fileID: 4200196478274918444}
   - component: {fileID: 1312657429033011383}
   - component: {fileID: 7242213462661580993}
+  - component: {fileID: 6637984215692572933}
   m_Layer: 0
   m_Name: In_A
   m_TagString: Untagged
@@ -562,7 +593,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -137828615955225665, guid: 097aec99816e6094b8196d4d46bf33cf, type: 3}
+  m_Sprite: {fileID: -6521863873616536221, guid: c11772bdd225466478a6b1bdce93d35f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -623,3 +654,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deletable
   _canBeDeletedByUser: 0
+--- !u!114 &6637984215692572933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9064218179489265509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa7f7498484203e458f4e3945e0212d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PortAppearance
+  _offSprite: {fileID: -6521863873616536221, guid: c11772bdd225466478a6b1bdce93d35f, type: 3}
+  _onSprite: {fileID: -262505974656634397, guid: dc4d2bb3fbfe1564bb6b65a199db2b9f, type: 3}

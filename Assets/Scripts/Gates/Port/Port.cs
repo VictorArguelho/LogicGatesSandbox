@@ -64,6 +64,7 @@ public class Port : MonoBehaviour
             return false;
 
         ConnectedPortsAtOut.Add(port);
+        port.SetSignal(Signal);
         return true;
     }  
 
@@ -98,6 +99,7 @@ public class Port : MonoBehaviour
             return false;
 
         ConnectedPortAtIn = null;
+        SetSignal(false);
         return true;
     }
 
