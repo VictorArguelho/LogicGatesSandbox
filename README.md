@@ -123,6 +123,8 @@ Dessa forma, componentes simples podem ser utilizados como blocos de construçã
 | ---------------------------------- | ------------------------------------------- |
 | Selecionar                         | Botão esquerdo do mouse                     |
 | Mover componente                   | Segurar o botão direito do mouse e arrastar |
+| Mover Camera                       | Segurar o botão do meio do mouse e arrastar |
+| Zoom In e Zoom Out                 | Scroll do mouse                             |
 | Excluir componente                 | `Delete` / `Backspace`                      |
 | Alternar ferramenta de seleção     | `1`                                         |
 | Alternar ferramenta de cabos       | `2`                                         |
