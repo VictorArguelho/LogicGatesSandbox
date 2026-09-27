@@ -15,7 +15,7 @@ MonoBehaviour:
   _code: 5
   _name: Porta OR
   _image: {fileID: 3223091865968251079, guid: c0b5baad67bf7f34f9afd47140172fe6, type: 3}
-  _description: "A porta NAND (NOT AND) recebe duas entradas e possui uma sa\xEDda.
+  _description: "A porta [NAND] (NOT AND) recebe duas entradas e possui uma sa\xEDda.
     A sa\xEDda desta porta \xE9 verdadeira quando pelo menos uma das entradas \xE9
     falsa."
   _category: 0

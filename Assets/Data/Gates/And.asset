@@ -15,6 +15,6 @@ MonoBehaviour:
   _code: 0
   _name: Porta AND
   _image: {fileID: 5912374315970644792, guid: 6e85f346805a5c04cb545012b650d20a, type: 3}
-  _description: "A porta AND recebe duas entradas e possui uma sa\xEDda. A sa\xEDda
+  _description: "A porta [AND] recebe duas entradas e possui uma sa\xEDda. A sa\xEDda
     desta porta \xE9 verdadeira somente quando ambas as entradas s\xE3o verdadeiras."
   _category: 0

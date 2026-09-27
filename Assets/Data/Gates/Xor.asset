@@ -15,6 +15,6 @@ MonoBehaviour:
   _code: 3
   _name: Porta XOR
   _image: {fileID: -6939048949863128186, guid: 389845c9a9185df41a1e196b50acfb82, type: 3}
-  _description: "A porta XOR (EXCLUSIVE OR) recebe duas entradas e possui uma sa\xEDda.
+  _description: "A porta [XOR] (EXCLUSIVE OR) recebe duas entradas e possui uma sa\xEDda.
     A sa\xEDda desta porta \xE9 verdadeira quando as entradas s\xE3o diferentes."
   _category: 0

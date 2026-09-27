@@ -7,15 +7,23 @@ public class ItemButton : MonoBehaviour
 
     private ItemData _item;
     private ItemSelector _itemSelector;
+    private ItemInfoPanel _itemInfoPanel;
 
-    public void Initialize(ItemData item, ItemSelector itemSelector)
+    public void Initialize(
+        ItemData item,
+        ItemSelector itemSelector,
+        ItemInfoPanel itemInfoPanel)
     {
         _item = item;
         _itemSelector = itemSelector;
+        _itemInfoPanel = itemInfoPanel;
 
         _image.sprite = item.Image;
     }
 
     public void Select() =>
         _itemSelector.Select(_item);
+
+    public void ShowInfo() =>
+        _itemInfoPanel.Show(_item);
 }

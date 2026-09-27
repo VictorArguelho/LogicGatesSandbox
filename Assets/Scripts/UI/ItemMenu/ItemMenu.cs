@@ -5,6 +5,7 @@ public class ItemMenu : MonoBehaviour
     [SerializeField] private ItemButton _itemButtonPrefab;
     [SerializeField] private Transform _content;
     [SerializeField] private ItemSelector _itemSelector;
+    [SerializeField] private ItemInfoPanel _itemInfoPanel;
     [SerializeField] private ItemData[] _items;
 
     private ItemCategory _currentCategory;
@@ -34,7 +35,11 @@ public class ItemMenu : MonoBehaviour
                 _content
             );
 
-            itemButton.Initialize(item, _itemSelector);
+            itemButton.Initialize(
+                item,
+                _itemSelector,
+                _itemInfoPanel
+            );
         }
     }
 

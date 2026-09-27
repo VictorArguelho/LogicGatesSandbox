@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ea80f19af0d624599418b3eaa60bdb, type: 3}
   m_Name: ToggablePort
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  _code: 7
-  _name: Conector
-  _image: {fileID: -6521863873616536221, guid: c11772bdd225466478a6b1bdce93d35f, type: 3}
-  _description: "O conector serve de interm\xE9dio entre sinais, ele pode ter somente
-    uma entrada, e um n\xFAmero ilimitado de sa\xEDdas, o valor de todas as sa\xEDdas
-    \xE9 igual ao valor da entrada."
+  _code: 8
+  _name: "Conector Ativ\xE1vel"
+  _image: {fileID: 2023123577264429015, guid: 9c840b5fafe014547af9278eefc1ca3e, type: 3}
+  _description: "O conector ativ\xE1vel permite enviar um sinal desejado. Ele n\xE3o
+    possui entradas e pode ter um n\xFAmero ilimitado de sa\xEDdas. O valor de todas
+    as sa\xEDdas \xE9 igual ao valor definido no conector."
   _category: 1

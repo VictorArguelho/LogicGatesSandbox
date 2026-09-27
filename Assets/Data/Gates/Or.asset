@@ -15,6 +15,6 @@ MonoBehaviour:
   _code: 1
   _name: Porta OR
   _image: {fileID: 220277949849798493, guid: 4cb3aa84250b20f4c80c7106ae650023, type: 3}
-  _description: "A porta OR recebe duas entradas e possui uma sa\xEDda. A sa\xEDda
+  _description: "A porta [OR] recebe duas entradas e possui uma sa\xEDda. A sa\xEDda
     desta porta \xE9 verdadeira quando pelo menos uma das entradas \xE9 verdadeira."
   _category: 0
