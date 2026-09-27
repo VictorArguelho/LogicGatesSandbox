@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65ea80f19af0d624599418b3eaa60bdb, type: 3}
-  m_Name: GateOr
+  m_Name: Port
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  _code: 1
-  _name: Porta OR
-  _image: {fileID: 220277949849798493, guid: 4cb3aa84250b20f4c80c7106ae650023, type: 3}
-  _description: "A porta OR recebe duas entradas e possui uma sa\xEDda. A sa\xEDda
-    desta porta \xE9 verdadeira se pelo menos uma das entradas for verdadeira."
-  _category: 0
+  _code: 7
+  _name: Conector
+  _image: {fileID: -6521863873616536221, guid: c11772bdd225466478a6b1bdce93d35f, type: 3}
+  _description: "O conector serve de interm\xE9dio entre sinais, ele pode ter somente
+    uma entrada, e um n\xFAmero ilimitado de sa\xEDdas, o valor de todas as sa\xEDdas
+    \xE9 igual ao valor da entrada."
+  _category: 1

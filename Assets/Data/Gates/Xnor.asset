@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65ea80f19af0d624599418b3eaa60bdb, type: 3}
-  m_Name: GateAnd
+  m_Name: Xnor
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  _code: 0
-  _name: Porta AND
-  _image: {fileID: 5912374315970644792, guid: 6e85f346805a5c04cb545012b650d20a, type: 3}
-  _description: "A porta AND recebe duas entradas e possui uma sa\xEDda. A sa\xEDda
-    desta porta \xE9 verdadeira somente se ambas as entradas forem verdadeiras."
+  _code: 6
+  _name: Porta OR
+  _image: {fileID: -6939048949863128186, guid: 389845c9a9185df41a1e196b50acfb82, type: 3}
+  _description: "A porta XNOR (NOT XOR) recebe duas entradas e possui uma sa\xEDda.
+    A sa\xEDda desta porta \xE9 verdadeira quando as entradas s\xE3o iguais."
   _category: 0

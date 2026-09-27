@@ -14,4 +14,7 @@
 
     public static void Nand(Port inA, Port inB, Port outPort) =>
         outPort.SetSignal(!(inA.Signal && inB.Signal));
+
+    public static void Xnor(Port inA, Port inB, Port outPort) =>
+        outPort.SetSignal(!(inA.Signal ^ inB.Signal));
 }

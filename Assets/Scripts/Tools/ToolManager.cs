@@ -10,15 +10,19 @@ public class ToolManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            CurrentTool = ToolCode.Selection;
-            OnToolChange?.Invoke(CurrentTool);
-        }
-            
+            SwitchTool(ToolCode.Selection);
+
+
         if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            CurrentTool = ToolCode.Wire;
-            OnToolChange?.Invoke(CurrentTool);
-        }
+            SwitchTool(ToolCode.Wire);
+    }
+
+    public void SwitchTool(ToolCode code)
+    {
+        if (CurrentTool == code)
+            return;
+
+        CurrentTool = code;
+        OnToolChange?.Invoke(CurrentTool);
     }
 }

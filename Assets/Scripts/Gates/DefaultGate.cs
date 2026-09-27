@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Mono.Cecil.Cil;
+using UnityEngine;
 
 [RequireComponent(typeof(GridDraggable))]
 [RequireComponent(typeof(SelectableAppearance))]
@@ -16,10 +17,18 @@ public class DefaultGate : MonoBehaviour
     [Header("Out")]
     [SerializeField] private Port _outPort;
 
+    private SpriteRenderer _renderer;
+
     private void Awake()
     {
-        var render = GetComponent<SpriteRenderer>();
-        render.sprite = AssetsManager.Instance.GetDefaultGateSprite(_gateCode);
+        _renderer = GetComponent<SpriteRenderer>();
+        SetGateCode(_gateCode);
+    }
+
+    public void SetGateCode(DefaultGateCode code)
+    {
+        _gateCode = code;
+        _renderer.sprite = AssetsManager.Instance.GetDefaultGateSprite(_gateCode);
     }
 
     private void Update()
@@ -40,6 +49,9 @@ public class DefaultGate : MonoBehaviour
                 break;
             case DefaultGateCode.Nand:
                 DefaultGateOperators.Nand(_inPortA, _inPortB, _outPort);
+                break;
+            case DefaultGateCode.Xnor:
+                DefaultGateOperators.Xnor(_inPortA, _inPortB, _outPort);
                 break;
         }
     }
