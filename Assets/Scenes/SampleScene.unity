@@ -650,6 +650,7 @@ GameObject:
   - component: {fileID: 1328361234}
   - component: {fileID: 1328361238}
   - component: {fileID: 1328361239}
+  - component: {fileID: 1328361240}
   - component: {fileID: 1328361235}
   m_Layer: 0
   m_Name: GameManager
@@ -748,6 +749,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eaf8bc64b09db14198a9e4bb85acdd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragManager
+--- !u!114 &1328361240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328361230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0120a506fb6296d4abee79c75ad0a0e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeletionManager
 --- !u!1001 &1428635072
 PrefabInstance:
   m_ObjectHideFlags: 0

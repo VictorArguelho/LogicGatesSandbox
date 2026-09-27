@@ -28,6 +28,12 @@ public static class SelectionManager
     {
         MouseManager.OnButtonDown += HandleMouseClick;
         MouseManager.OnButtonUp += HandleMouseUp;
+
+        ToolManager.OnToolChange += (tool) =>
+        {
+            if (tool != ToolCode.Selection)
+                DeselectAll();
+        };
     }
 
     private static void HandleMouseClick(MouseButtonCode button)

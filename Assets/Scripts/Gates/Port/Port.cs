@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MouseCollider))]
+[RequireComponent(typeof(Deletable))]
 public class Port : MonoBehaviour
 {
     private MouseCollider _collider;
+    private Deletable _deletable;
     
     public bool Signal { get; private set; }
 
@@ -17,9 +20,14 @@ public class Port : MonoBehaviour
     public bool IsMouseOver =>
         _collider.IsColliding;
 
+    public event Action OnDeleted;
+
     private void Awake()
     {
         _collider = GetComponent<MouseCollider>();
+        _deletable = GetComponent<Deletable>();
+
+        _deletable.OnDeleted += OnDeletedHandle;
         PortConnectorManager.RegisterPort(this);
     }
 
@@ -92,4 +100,7 @@ public class Port : MonoBehaviour
         ConnectedPortAtIn = null;
         return true;
     }
+
+    private void OnDeletedHandle() =>
+        OnDeleted?.Invoke();
 }

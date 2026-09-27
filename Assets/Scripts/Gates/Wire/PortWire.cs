@@ -21,6 +21,8 @@ public class PortWire : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private SelectableAppearance _selectableAppearance;
+    [SerializeField] private Deletable _deletable;
+
     private Wire _wire;
 
     private Port _outPort;
@@ -34,14 +36,33 @@ public class PortWire : MonoBehaviour
         _outPort = outPort;
         _inPort = inPort;
 
+        _outPort.OnDeleted += OnPortDeleteHandle;
+        _inPort.OnDeleted += OnPortDeleteHandle;
+
+        _deletable.OnDeleted += OnDeleteHandle;
+
         Refresh();
     }
 
     private void Update() =>
         Refresh();
 
+    private void OnDestroy()
+    {
+        if (_outPort != null)
+            _outPort.OnDeleted -= OnPortDeleteHandle;
+
+        if (_inPort != null)
+            _inPort.OnDeleted -= OnPortDeleteHandle;
+
+        _deletable.OnDeleted -= OnDeleteHandle;
+    }
+
     private void Refresh()
     {
+        if (_outPort == null || _inPort == null)
+            return;
+
         _wire.SetPoints(_outPort.transform.position, _inPort.transform.position);
 
         if (_outPort.Signal == _lastSignal)
@@ -61,5 +82,15 @@ public class PortWire : MonoBehaviour
         }
 
         _lastSignal = _outPort.Signal;
+    }
+
+    private void OnPortDeleteHandle() =>
+        _deletable.Delete();
+
+    private void OnDeleteHandle()
+    {
+        if (_outPort != null && _inPort != null)
+            _outPort.TryDisconnectAtOut(_inPort);
+        Destroy(gameObject);
     }
 }

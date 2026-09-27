@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(GridDraggable))]
-[RequireComponent(typeof(MouseCollider))]
+[RequireComponent(typeof(SelectableAppearance))]
+[RequireComponent(typeof(Deletable))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class DefaultGate : MonoBehaviour
 {

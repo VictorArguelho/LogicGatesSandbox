@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3296316453934763545}
   - component: {fileID: 5587474492117594089}
   - component: {fileID: 4444764078896633483}
+  - component: {fileID: 1509784962275732510}
   m_Layer: 0
   m_Name: Port
   m_TagString: Untagged
@@ -162,5 +163,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridDraggable
   _gridSize: 1
-  _gridOffset: {x: 0, y: 0}
+  _gridOffset: {x: 0.5, y: 0.5}
   _smoothSpeed: 15
+--- !u!114 &1509784962275732510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580191081182210293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af85bc2ced39bf6469696ad645f3b91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Deletable

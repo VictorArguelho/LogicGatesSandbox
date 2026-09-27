@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4008851388902370556}
   - component: {fileID: 1187157881724835131}
   - component: {fileID: 3419090493601430487}
+  - component: {fileID: 8592476919920790818}
   m_Layer: 0
   m_Name: DefaultGate
   m_TagString: Untagged
@@ -168,6 +169,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DefaultGate
   _gateCode: 0
+--- !u!114 &8592476919920790818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705353029732462963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af85bc2ced39bf6469696ad645f3b91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Deletable
+  _canBeDeletedByUser: 1
 --- !u!1 &5030854113669843270
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +194,8 @@ GameObject:
   - component: {fileID: 5225337706282405914}
   - component: {fileID: 7563503022126179842}
   - component: {fileID: 145997629875837512}
+  - component: {fileID: 3909309852333324748}
+  - component: {fileID: 8481699161007928215}
   m_Layer: 0
   m_Name: Out
   m_TagString: Untagged
@@ -287,6 +303,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfebdc746119a8b4aa5868ff4f6cb9b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Port
+--- !u!114 &3909309852333324748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030854113669843270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df088ca3b359e143be8b0cbd215e96e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Selectable
+--- !u!114 &8481699161007928215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030854113669843270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af85bc2ced39bf6469696ad645f3b91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Deletable
+  _canBeDeletedByUser: 0
 --- !u!1 &7289153959843833148
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,6 +340,8 @@ GameObject:
   - component: {fileID: 290808856822139621}
   - component: {fileID: 8538326607977332121}
   - component: {fileID: 1246836140497926899}
+  - component: {fileID: 4110776395118127557}
+  - component: {fileID: 6719685079927624732}
   m_Layer: 0
   m_Name: In_2
   m_TagString: Untagged
@@ -406,6 +449,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfebdc746119a8b4aa5868ff4f6cb9b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Port
+--- !u!114 &4110776395118127557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7289153959843833148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df088ca3b359e143be8b0cbd215e96e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Selectable
+--- !u!114 &6719685079927624732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7289153959843833148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af85bc2ced39bf6469696ad645f3b91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Deletable
+  _canBeDeletedByUser: 0
 --- !u!1 &9064218179489265509
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +486,8 @@ GameObject:
   - component: {fileID: 3280670944453239133}
   - component: {fileID: 1679294709838392565}
   - component: {fileID: 4200196478274918444}
+  - component: {fileID: 1312657429033011383}
+  - component: {fileID: 7242213462661580993}
   m_Layer: 0
   m_Name: In_1
   m_TagString: Untagged
@@ -525,3 +595,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfebdc746119a8b4aa5868ff4f6cb9b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Port
+--- !u!114 &1312657429033011383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9064218179489265509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df088ca3b359e143be8b0cbd215e96e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Selectable
+--- !u!114 &7242213462661580993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9064218179489265509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af85bc2ced39bf6469696ad645f3b91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Deletable
+  _canBeDeletedByUser: 0
