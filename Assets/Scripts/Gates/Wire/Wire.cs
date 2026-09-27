@@ -8,24 +8,6 @@ public class Wire : MonoBehaviour
     [SerializeField] private Transform _middle;
     [SerializeField] private Transform _b;
 
-    private SpriteRenderer _aRenderer;
-    private SpriteRenderer _bRenderer;
-    private SpriteRenderer _middleRenderer;
-
-    private void Awake()
-    {
-        _aRenderer = _a.GetComponent<SpriteRenderer>();
-        _bRenderer = _b.GetComponent<SpriteRenderer>();
-        _middleRenderer = _middle.GetComponent<SpriteRenderer>();
-    }
-
-    public void SetColor(Color color)
-    {
-        _aRenderer.color = color;
-        _bRenderer.color = color;
-        _middleRenderer.color = color;
-    }
-
     public void SetPoints(Vector2 pointA, Vector2 pointB)
     {
         var difference = pointB - pointA;

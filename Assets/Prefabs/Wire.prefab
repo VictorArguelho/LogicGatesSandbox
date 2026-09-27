@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2546976401545754052}
-  - component: {fileID: 8534779901001973147}
+  - component: {fileID: 5979151250760396879}
   m_Layer: 0
   m_Name: Wire
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 5267442558946698467}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8534779901001973147
+--- !u!114 &5979151250760396879
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

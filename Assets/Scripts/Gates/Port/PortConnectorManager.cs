@@ -11,16 +11,17 @@ public class PortConnectorManager : MonoBehaviour
     public static void UnregisterPort(Port port) =>
         _ports.Remove(port);
 
-    private bool _isConnecting = false;
-    private Port _outPort;
     private Wire _previewWire;
+
+    private bool _isConnecting;
+    private Port _outPort;
 
     private void Awake()
     {
         MouseManager.OnButtonDown += MouseDownHandle;
         MouseManager.OnButtonUp += MouseUpHandle;
 
-        _previewWire = WireFactory.CreateWire(Vector2.zero, Vector2.zero, Color.white);
+        _previewWire = WireFactory.CreateWire(Vector2.zero, Vector2.zero);
         _previewWire.gameObject.SetActive(false);
     }
 
@@ -33,12 +34,18 @@ public class PortConnectorManager : MonoBehaviour
             );
     }
 
+    private void OnDestroy()
+    {
+        MouseManager.OnButtonDown -= MouseDownHandle;
+        MouseManager.OnButtonUp -= MouseUpHandle;
+    }
+
     private void MouseDownHandle(MouseButtonCode button)
     {
-        if (ToolManager.CurrentTool != ToolCode.Wire)
+        if (button != MouseButtonCode.Left)
             return;
 
-        if (button != MouseButtonCode.Left)
+        if (ToolManager.CurrentTool != ToolCode.Wire)
             return;
 
         if (_isConnecting)
@@ -56,10 +63,10 @@ public class PortConnectorManager : MonoBehaviour
 
     private void MouseUpHandle(MouseButtonCode button)
     {
-        if (ToolManager.CurrentTool != ToolCode.Wire)
+        if (button != MouseButtonCode.Left)
             return;
 
-        if (button != MouseButtonCode.Left)
+        if (ToolManager.CurrentTool != ToolCode.Wire)
             return;
 
         if (!_isConnecting)
@@ -99,8 +106,7 @@ public class PortConnectorManager : MonoBehaviour
 
     private void ResolveConnection(Port outPort, Port inPort)
     {
-        outPort.ConnectOut(inPort);
-        inPort.ConnectIn(outPort);
-        PortWireFactory.CreateWire(outPort, inPort);
+        if (outPort.TryConnectAtOut(inPort))
+            PortWireFactory.CreateWire(outPort, inPort);
     }
 }

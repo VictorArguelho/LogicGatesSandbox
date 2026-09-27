@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(DraggableSelectable))]
 [RequireComponent(typeof(GridDraggable))]
 [RequireComponent(typeof(MouseCollider))]
 [RequireComponent(typeof(SpriteRenderer))]

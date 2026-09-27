@@ -3,53 +3,120 @@ using UnityEngine;
 
 public static class SelectionManager
 {
-    private readonly static List<DraggableSelectable> _selectables = new();
+    private readonly static List<Selectable> _selectables = new();
+    private readonly static List<Selectable> _selectedSelectables = new();
 
-    public static void RegisterSelectable(DraggableSelectable selectable)
+    public static bool IsMultipleSelecting { get; private set; } = false;
+    public static Vector2 StartMultipleSelectingPosition { get; private set; }
+
+    public static IReadOnlyList<Selectable> SelectedSelectables =>
+        _selectedSelectables;
+
+    public static void RegisterSelectable(Selectable selectable)
     {
         if (!_selectables.Contains(selectable))
             _selectables.Add(selectable);
     }
 
-    public static void UnregisterSelectable(DraggableSelectable selectable) =>
+    public static void UnregisterSelectable(Selectable selectable)
+    {
         _selectables.Remove(selectable);
+        _selectedSelectables.Remove(selectable);
+    }
 
     public static void Initialize()
     {
         MouseManager.OnButtonDown += HandleMouseClick;
         MouseManager.OnButtonUp += HandleMouseUp;
-
-        MultipleSelector.OnSelectionStopped += HandleSelectionStopped;
     }
 
     private static void HandleMouseClick(MouseButtonCode button)
     {
-        if (button == MouseButtonCode.Left && ToolManager.CurrentTool == ToolCode.Drag)
-            if (!ClickSelector.Click(_selectables))
-                MultipleSelector.StartSelect();
+        if (button != MouseButtonCode.Left)
+            return;
+
+        if (ToolManager.CurrentTool != ToolCode.Selection)
+            return;
+
+        DeselectAll();
+
+        if (MouseIsOverAnySelectable(out var selectable))
+        {
+            selectable.Select();
+            _selectedSelectables.Add(selectable);
+            return;
+        }
+
+        IsMultipleSelecting = true;
+        StartMultipleSelectingPosition = MouseManager.MouseWorldPosition;
     }
 
     private static void HandleMouseUp(MouseButtonCode button)
     {
-        if (button == MouseButtonCode.Left && ToolManager.CurrentTool == ToolCode.Drag)
+        if (button != MouseButtonCode.Left)
+            return;
+
+        if (ToolManager.CurrentTool != ToolCode.Selection)
+            return;
+
+        if (!IsMultipleSelecting)
+            return;
+
+        IsMultipleSelecting = false;
+        var selectablesInSelectionBounds = GetSelectablesInBounds(GetMultipleSelectionBounds());
+        foreach (var selectable in selectablesInSelectionBounds)
         {
-            DeselectAll();
-            MultipleSelector.StopSelect();
+            selectable.Select();
+            _selectedSelectables.Add(selectable);
         }
     }
 
-    private static void HandleSelectionStopped(Bounds selectionBounds)
+    private static Bounds GetMultipleSelectionBounds()
     {
-        foreach (var selectable in _selectables)
-        {
-            if (!selectable.TrySelect(selectionBounds))
-                selectable.Deselect();
-        }
+        Vector2 currentMousePosition = MouseManager.MouseWorldPosition;
+
+        var min = Vector2.Min(StartMultipleSelectingPosition, currentMousePosition);
+        var max = Vector2.Max(StartMultipleSelectingPosition, currentMousePosition);
+
+        return new(
+            (min + max) / 2f,
+            max - min
+        );
     }
 
     private static void DeselectAll()
     {
-        foreach (var selectable in _selectables)
+        foreach (var selectable in _selectedSelectables)
             selectable.Deselect();
+
+        _selectedSelectables.Clear();
+    }
+
+    private static bool MouseIsOverAnySelectable(out Selectable collidingSelectable)
+    {
+        foreach (var selectable in _selectables)
+        {
+            if (selectable.IsMouseOver)
+            {
+                collidingSelectable = selectable;
+                return true;
+            }
+        }
+
+        collidingSelectable = null;
+        return false;
+    }
+
+    private static List<Selectable> GetSelectablesInBounds(Bounds bounds)
+    {
+        var selectables = new List<Selectable>();
+
+        foreach (var selectable in _selectables)
+        {
+            if (selectable.IntersectsBounds(bounds))
+                selectables.Add(selectable);
+        }
+
+        return selectables;
     }
 }

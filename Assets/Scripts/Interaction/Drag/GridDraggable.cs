@@ -1,43 +1,45 @@
 ﻿using UnityEngine;
 
-public class GridDraggable : MonoBehaviour, IDraggable
+public class GridDraggable : Draggable
 {
     [SerializeField] private float _gridSize = 1f;
     [SerializeField] private Vector2 _gridOffset = new(0.5f, 0.5f);
     [SerializeField] private float _smoothSpeed = 15f;
 
-    public bool IsDragging { get; private set; }
-
     private Vector2 _realPosition;
-    private Vector2 _targetPosition;
+    private Vector2 _griddedPosition;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _realPosition = transform.position;
-        _targetPosition = transform.position;
+        _griddedPosition = transform.position;
+        UpdateGriddedPosition();
     }
 
-    private void Update()
-    {
-        RefreshTargetPosition();
-        UpdateTargetPosition();
+    private void Update() =>
         UpdatePosition();
-    }
-    public void StartDragging() =>
-    IsDragging = true;
 
-    public void StopDragging() =>
-        IsDragging = false;
-
-    private void RefreshTargetPosition()
+    public override void StartDragging()
     {
         if (IsDragging)
-            _realPosition += MouseManager.MouseWorldPositionDelta;
+            return;
+
+        base.StartDragging();
+
+        _realPosition = _griddedPosition;
+    }   
+
+    public override void ApplyMove(Vector2 move)
+    {
+        _realPosition += move;
+        UpdateGriddedPosition();
     }
 
-    private void UpdateTargetPosition()
+    private void UpdateGriddedPosition()
     {
-        _targetPosition = new Vector2(
+        _griddedPosition = new Vector2(
             Mathf.Round(_realPosition.x / _gridSize) * _gridSize,
             Mathf.Round(_realPosition.y / _gridSize) * _gridSize
         ) + _gridOffset;
@@ -47,7 +49,7 @@ public class GridDraggable : MonoBehaviour, IDraggable
     {
         transform.position = Vector2.Lerp(
             transform.position,
-            _targetPosition,
+            _griddedPosition,
             _smoothSpeed * Time.deltaTime
         );
     }

@@ -9,12 +9,11 @@ public class WireFactory : MonoBehaviour
     private void Awake() =>
         _wirePrefabStatic = _wirePrefab;
 
-    public static Wire CreateWire(Vector2 pointA, Vector2 pointB, Color color)
+    public static Wire CreateWire(Vector2 pointA, Vector2 pointB)
     {
         var wire = Instantiate(_wirePrefabStatic).GetComponent<Wire>();
 
         wire.SetPoints(pointA, pointB);
-        wire.SetColor(color);
 
         return wire;
     }

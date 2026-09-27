@@ -7,10 +7,12 @@ public class Port : MonoBehaviour
     private MouseCollider _collider;
     
     public bool Signal { get; private set; }
-    public List<Port> ConnectedPortsOut { get; } = new();
-    public Port ConnectedPortIn { get; private set; }
-    public bool IsConnectedOut => ConnectedPortsOut.Count > 0;
-    public bool IsConnectedIn => ConnectedPortIn != null;
+
+    public Port ConnectedPortAtIn { get; private set; }
+    public List<Port> ConnectedPortsAtOut { get; } = new();
+
+    public bool IsConnectedIn => ConnectedPortAtIn != null;
+    public bool IsConnectedOut => ConnectedPortsAtOut.Count > 0;
 
     public bool IsMouseOver =>
         _collider.IsColliding;
@@ -21,18 +23,18 @@ public class Port : MonoBehaviour
         PortConnectorManager.RegisterPort(this);
     }
 
-    private void OnDestroy() =>
+    private void OnDestroy()
+    {
         PortConnectorManager.UnregisterPort(this);
 
-    public void ConnectIn(Port other) =>
-        ConnectedPortIn = other;
-    public void DisconnectIn() =>
-    ConnectedPortIn = null;
+        if (IsConnectedIn)
+            ConnectedPortAtIn.TryDisconnectAtOut(this);
 
-    public void ConnectOut(Port other) =>
-        ConnectedPortsOut.Add(other);
-    public void DisconnectOut(Port port) =>
-        ConnectedPortsOut.Remove(port);
+        foreach (var port in ConnectedPortsAtOut)
+            port.TryDisconnectAtIn();
+
+        ConnectedPortsAtOut.Clear();
+    }
 
     public void SetSignal(bool signal)
     {
@@ -41,8 +43,53 @@ public class Port : MonoBehaviour
 
         Signal = signal;
 
-        ConnectedPortsOut.RemoveAll(item => item == null);
-        foreach (var port in ConnectedPortsOut)
+        foreach (var port in ConnectedPortsAtOut)
             port.SetSignal(signal);
+    }
+
+    public bool TryConnectAtOut(Port port)
+    {
+        if (ConnectedPortsAtOut.Contains(port))
+            return false;
+
+        if (!port.TryConnectAtIn(this))
+            return false;
+
+        ConnectedPortsAtOut.Add(port);
+        return true;
+    }  
+
+    public bool TryDisconnectAtOut(Port port)
+    {
+        if (!ConnectedPortsAtOut.Contains(port))
+            return false;
+
+        if (port.ConnectedPortAtIn != this)
+            return false;
+
+        if (!port.TryDisconnectAtIn())
+            return false;
+
+        ConnectedPortsAtOut.Remove(port);
+        return true;
+    }
+
+    private bool TryConnectAtIn(Port port)
+    {
+        if (IsConnectedIn)
+            return false;
+
+        ConnectedPortAtIn = port;
+        return true;
+    }
+
+
+    private bool TryDisconnectAtIn()
+    {
+        if (!IsConnectedIn)
+            return false;
+
+        ConnectedPortAtIn = null;
+        return true;
     }
 }

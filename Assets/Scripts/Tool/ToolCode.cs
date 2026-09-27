@@ -1,5 +1,5 @@
 ﻿public enum ToolCode
 {
-    Drag,
+    Selection,
     Wire
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class MultipleSelectionVisualizer : MonoBehaviour
+public class SelectionVisualizer : MonoBehaviour
 {
     private SpriteRenderer _renderer;
 
@@ -10,7 +10,7 @@ public class MultipleSelectionVisualizer : MonoBehaviour
 
     private void Update()
     {
-        if (!MultipleSelector.IsSelecting)
+        if (!SelectionManager.IsMultipleSelecting)
         {
             _renderer.enabled = false;
             return;
@@ -18,7 +18,7 @@ public class MultipleSelectionVisualizer : MonoBehaviour
 
         _renderer.enabled = true;
 
-        var start = MultipleSelector.StartSelectionPoint;
+        var start = SelectionManager.StartMultipleSelectingPosition;
         var end = MouseManager.MouseWorldPosition;
 
         var min = Vector2.Min(start, end);

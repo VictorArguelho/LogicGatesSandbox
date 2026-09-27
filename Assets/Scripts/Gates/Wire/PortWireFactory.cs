@@ -12,7 +12,9 @@ public class PortWireFactory : MonoBehaviour
     public static PortWire CreateWire(Port outPort, Port inPort)
     {
         var wire = Instantiate(_wirePrefabStatic).GetComponent<PortWire>();
+
         wire.Initialize(outPort, inPort);
+
         return wire;
     }
 }
