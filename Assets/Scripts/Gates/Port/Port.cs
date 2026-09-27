@@ -6,9 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(Deletable))]
 public class Port : MonoBehaviour
 {
+    [SerializeField] private bool _canBeConnectedIn = true;
+
     private MouseCollider _collider;
     private Deletable _deletable;
-    
+
+    public bool CanBeConnectedIn => _canBeConnectedIn;
+
     public bool Signal { get; private set; }
 
     public Port ConnectedPortAtIn { get; private set; }
@@ -85,6 +89,9 @@ public class Port : MonoBehaviour
 
     private bool TryConnectAtIn(Port port)
     {
+        if (!CanBeConnectedIn)
+            return false;
+
         if (IsConnectedIn)
             return false;
 

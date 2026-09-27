@@ -74,7 +74,7 @@ public class PortConnectorManager : MonoBehaviour
 
         foreach (var port in _ports)
         {
-            if (port.IsMouseOver && port != _outPort && !port.IsConnectedIn)
+            if (port.IsMouseOver && port != _outPort && !port.IsConnectedIn && port.CanBeConnectedIn)
             {
                 StopConnection(port);
                 return;

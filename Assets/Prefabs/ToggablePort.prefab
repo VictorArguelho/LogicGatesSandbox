@@ -17,8 +17,9 @@ GameObject:
   - component: {fileID: 4444764078896633483}
   - component: {fileID: 1509784962275732510}
   - component: {fileID: 3307367354990590521}
+  - component: {fileID: 7000016824757318253}
   m_Layer: 0
-  m_Name: Port
+  m_Name: ToggablePort
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfebdc746119a8b4aa5868ff4f6cb9b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Port
-  _canBeConnectedIn: 1
+  _canBeConnectedIn: 0
 --- !u!114 &3296316453934763545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,3 +195,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PortAppearance
   _offSprite: {fileID: -6521863873616536221, guid: c11772bdd225466478a6b1bdce93d35f, type: 3}
   _onSprite: {fileID: -262505974656634397, guid: dc4d2bb3fbfe1564bb6b65a199db2b9f, type: 3}
+--- !u!114 &7000016824757318253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580191081182210293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 014bd9cbb51f39540972c67d5f2a3649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToggablePort

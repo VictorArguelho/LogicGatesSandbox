@@ -81,6 +81,7 @@ public class PortWire : MonoBehaviour
             _selectableAppearance.SelectedColor = _offSignalSelectedColor;
         }
 
+        _selectableAppearance.RefreshColor();
         _lastSignal = _outPort.Signal;
     }
 

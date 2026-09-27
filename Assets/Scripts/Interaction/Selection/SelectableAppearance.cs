@@ -49,7 +49,7 @@ public class SelectableAppearance : MonoBehaviour
         }
     }
 
-    private void RefreshColor()
+    public void RefreshColor()
     {
         switch (_currentState)
         {
