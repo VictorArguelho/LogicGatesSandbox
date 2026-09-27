@@ -2,15 +2,17 @@
 
 [RequireComponent(typeof(MouseCollider))]
 [RequireComponent(typeof(SelectionController))]
-public class SelectableTarget : MonoBehaviour
+public class DraggableSelectable : MonoBehaviour
 {
     private MouseCollider _mouseCollider;
     private SelectionController _selectionController;
+    private IDraggable _draggable;
 
     private void Awake()
     {
         _mouseCollider = GetComponent<MouseCollider>();
         _selectionController = GetComponent<SelectionController>();
+        _draggable = GetComponent<IDraggable>();
 
         SelectionManager.RegisterSelectable(this);
     }
@@ -32,6 +34,7 @@ public class SelectableTarget : MonoBehaviour
             return false;
 
         _selectionController.Select();
+        _draggable.StartDragging();
         return true;
     }
 
@@ -41,11 +44,13 @@ public class SelectableTarget : MonoBehaviour
             return false;
 
         _selectionController.Select();
+        _draggable.StartDragging();
         return true;
     }
 
     public void Deselect()
     {
         _selectionController.Deselect();
+        _draggable.StopDragging();
     }
 }

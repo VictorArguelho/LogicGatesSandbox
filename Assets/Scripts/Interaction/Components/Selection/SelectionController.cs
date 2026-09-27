@@ -4,12 +4,10 @@
 public class SelectionController : MonoBehaviour
 {
     private Selectable _selectable;
-    private IDraggable _draggable;
 
     private void Awake()
     {
         _selectable = GetComponent<Selectable>();
-        _draggable = GetComponent<IDraggable>();
     }
 
     public void StartSemiSelect()
@@ -29,7 +27,6 @@ public class SelectionController : MonoBehaviour
         if (_selectable.State == SelectionState.Selected)
             return;
 
-        _draggable.StartDragging();
         _selectable.SetState(SelectionState.Selected);
     }
 
@@ -38,7 +35,6 @@ public class SelectionController : MonoBehaviour
         if (_selectable.State != SelectionState.Selected)
             return;
 
-        _draggable.StopDragging();
         _selectable.SetState(SelectionState.Default);
     }
 }

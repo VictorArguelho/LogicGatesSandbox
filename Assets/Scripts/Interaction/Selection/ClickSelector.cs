@@ -2,7 +2,7 @@
 
 public static class ClickSelector
 {
-    public static bool Click(List<SelectableTarget> selectables)
+    public static bool Click(List<DraggableSelectable> selectables)
     {
         var hasBeenClicked = false;
 

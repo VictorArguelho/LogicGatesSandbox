@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Renderer))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class MultipleSelectionVisualizer : MonoBehaviour
 {
-    private Renderer _renderer;
+    private SpriteRenderer _renderer;
 
     private void Awake() =>
-        _renderer = GetComponent<Renderer>();
+        _renderer = GetComponent<SpriteRenderer>();
 
     private void Update()
     {

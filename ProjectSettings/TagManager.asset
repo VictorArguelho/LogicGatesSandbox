@@ -41,5 +41,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Gates
+    uniqueID: 3059169629
+    locked: 0
+  - name: Ports
+    uniqueID: 229217485
+    locked: 0
+  - name: Wires
+    uniqueID: 3427709639
+    locked: 0
   m_RenderingLayers:
   - Default

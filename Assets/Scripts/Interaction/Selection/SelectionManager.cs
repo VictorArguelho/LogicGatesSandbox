@@ -3,15 +3,15 @@ using UnityEngine;
 
 public static class SelectionManager
 {
-    private readonly static List<SelectableTarget> _selectables = new();
+    private readonly static List<DraggableSelectable> _selectables = new();
 
-    public static void RegisterSelectable(SelectableTarget selectable)
+    public static void RegisterSelectable(DraggableSelectable selectable)
     {
         if (!_selectables.Contains(selectable))
             _selectables.Add(selectable);
     }
 
-    public static void UnregisterSelectable(SelectableTarget selectable) =>
+    public static void UnregisterSelectable(DraggableSelectable selectable) =>
         _selectables.Remove(selectable);
 
     public static void Initialize()
@@ -24,14 +24,14 @@ public static class SelectionManager
 
     private static void HandleMouseClick(MouseButtonCode button)
     {
-        if (button == MouseButtonCode.Left)
+        if (button == MouseButtonCode.Left && ToolManager.CurrentTool == ToolCode.Drag)
             if (!ClickSelector.Click(_selectables))
                 MultipleSelector.StartSelect();
     }
 
     private static void HandleMouseUp(MouseButtonCode button)
     {
-        if (button == MouseButtonCode.Left)
+        if (button == MouseButtonCode.Left && ToolManager.CurrentTool == ToolCode.Drag)
         {
             DeselectAll();
             MultipleSelector.StopSelect();

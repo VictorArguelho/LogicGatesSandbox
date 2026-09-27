@@ -32,7 +32,21 @@ public class MouseCollider : MonoBehaviour
         }
     }
 
-    public bool IsColliding => Bounds.Contains(MouseManager.MouseWorldPosition);
+    public bool IsColliding
+    {
+        get
+        {
+            var localMousePosition =
+                transform.InverseTransformPoint(MouseManager.MouseWorldPosition);
+
+            var localBounds = new Bounds(
+                _offset * _size,
+                _size
+            );
+
+            return localBounds.Contains(localMousePosition);
+        }
+    }
 
     private void Update()
     {
