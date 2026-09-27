@@ -2,5 +2,7 @@
 {
     And = 0,
     Or = 1,
-    Not = 2
+    Xor = 2,
+    Nor = 3,
+    Nand = 4
 }
