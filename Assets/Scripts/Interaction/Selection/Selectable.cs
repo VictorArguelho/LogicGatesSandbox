@@ -4,8 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(MouseCollider))]
 public class Selectable : MonoBehaviour
 {
+    [SerializeField] private int _priority;
     private MouseCollider _collider;
 
+    public int Priority => _priority;
     public bool IsMouseOver => _collider.IsColliding;
     public SelectionState State { get; private set; } = SelectionState.Default;
 

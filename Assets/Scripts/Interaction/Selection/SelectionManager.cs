@@ -101,19 +101,23 @@ public static class SelectionManager
         _selectedSelectables.Clear();
     }
 
-    private static bool MouseIsOverAnySelectable(out Selectable collidingSelectable)
+    private static bool MouseIsOverAnySelectable(out Selectable selectable)
     {
-        foreach (var selectable in _selectables)
+        selectable = null;
+
+        foreach (var current in _selectables)
         {
-            if (selectable.IsMouseOver)
+            if (!current.IsMouseOver)
+                continue;
+
+            if (selectable == null ||
+                current.Priority > selectable.Priority)
             {
-                collidingSelectable = selectable;
-                return true;
+                selectable = current;
             }
         }
 
-        collidingSelectable = null;
-        return false;
+        return selectable != null;
     }
 
     private static List<Selectable> GetSelectablesInBounds(Bounds bounds)

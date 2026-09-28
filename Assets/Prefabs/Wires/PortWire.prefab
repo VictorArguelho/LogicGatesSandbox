@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df088ca3b359e143be8b0cbd215e96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Selectable
+  _priority: 1
 --- !u!114 &3362019368582934726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af85bc2ced39bf6469696ad645f3b91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deletable
+  _canBeDeletedByUser: 1
 --- !u!1 &8038261565162551070
 GameObject:
   m_ObjectHideFlags: 0
