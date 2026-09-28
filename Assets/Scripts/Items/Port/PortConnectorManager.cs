@@ -104,7 +104,7 @@ public class PortConnectorManager : MonoBehaviour
         _previewWire.gameObject.SetActive(false);
     }
 
-    private void ResolveConnection(Port outPort, Port inPort)
+    public static void ResolveConnection(Port outPort, Port inPort)
     {
         if (outPort.TryConnectAtOut(inPort))
             PortWireFactory.CreateWire(outPort, inPort);

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Xnor
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   _code: 6
-  _name: Porta OR
-  _image: {fileID: -6939048949863128186, guid: 389845c9a9185df41a1e196b50acfb82, type: 3}
+  _name: Porta XNOR
+  _image: {fileID: 1612683358822506722, guid: 4550da6577048f7478f099a71b1f4f91, type: 3}
   _description: "A porta [XNOR] (NOT XOR) recebe duas entradas e possui uma sa\xEDda.
     A sa\xEDda desta porta \xE9 verdadeira quando as entradas s\xE3o iguais."
   _category: 0

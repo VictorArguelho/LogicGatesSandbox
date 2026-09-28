@@ -29,6 +29,9 @@ public class PortWire : MonoBehaviour
     private Port _inPort;
     private bool _lastSignal;
 
+    public Port OutPort => _outPort;
+    public Port InPort => _inPort;
+
     public void Initialize(Port outPort, Port inPort)
     {
         _wire = GetComponent<Wire>();

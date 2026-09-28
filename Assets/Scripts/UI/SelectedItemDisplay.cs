@@ -7,7 +7,7 @@ public class SelectedItemDisplay : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private TMP_Text _name;
 
-    private void Start() =>
+    private void Awake() =>
         FindFirstObjectByType<ItemSelector>().OnItemSelected += UpdateDisplay;
 
     private void UpdateDisplay(ItemData item)

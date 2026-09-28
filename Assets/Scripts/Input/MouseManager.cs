@@ -26,6 +26,11 @@ public class MouseManager : MonoBehaviour
     public static Vector2 MouseWorldPositionDelta =>
         _currentWorldPosition - _lastWorldPosition;
 
+    public static Vector2 GriddedMouseWorldPosition => new Vector2(
+                Mathf.Round(MouseWorldPosition.x / 1f) * 1f,
+                Mathf.Round(MouseWorldPosition.y / 1f) * 1f
+            ) + Vector2.one / 2f;
+
     public static bool IsPointerOverUI =>
         EventSystem.current != null &&
         EventSystem.current.IsPointerOverGameObject();

@@ -58,7 +58,18 @@ O jogador possui liberdade para construir seus circuitos em um espaço de trabal
 * Selecionar múltiplos componentes.
 * Excluir componentes.
 * Conectar componentes.
+* Copiar componentes selecionados.
+* Colar componentes copiados.
+* Preservar as conexões entre componentes ao copiar e colar.
 * Testar diferentes combinações de portas lógicas.
+
+### Copiar e colar
+
+O jogo possui um sistema de **copiar e colar** que permite duplicar componentes selecionados e suas conexões.
+
+Ao copiar uma construção, o sistema preserva o posicionamento relativo dos componentes, permitindo recriar a estrutura em outra posição da grade.
+
+As conexões entre os componentes também são recriadas ao realizar a colagem, permitindo duplicar circuitos completos de forma rápida.
 
 ### Grade
 
@@ -126,6 +137,8 @@ Dessa forma, componentes simples podem ser utilizados como blocos de construçã
 | Mover Camera                       | Segurar o botão do meio do mouse e arrastar |
 | Zoom In e Zoom Out                 | Scroll do mouse                             |
 | Excluir componente                 | `Delete` / `Backspace`                      |
+| Copiar seleção                     | `C`                                         |
+| Colar seleção                      | `V`                                         |
 | Alternar ferramenta de seleção     | `1`                                         |
 | Alternar ferramenta de cabos       | `2`                                         |
 | Ativar/desativar conector ativável | `E`                                         |

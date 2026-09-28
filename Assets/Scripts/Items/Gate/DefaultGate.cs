@@ -24,12 +24,6 @@ public class DefaultGate : MonoBehaviour
         SetGateCode(_gateCode);
     }
 
-    public void SetGateCode(DefaultGateCode code)
-    {
-        _gateCode = code;
-        _renderer.sprite = AssetsManager.Instance.GetDefaultGateSprite(_gateCode);
-    }
-
     private void Update()
     {
         switch (_gateCode)
@@ -39,6 +33,9 @@ public class DefaultGate : MonoBehaviour
                 break;
             case DefaultGateCode.Or:
                 DefaultGateOperators.Or(_inPortA, _inPortB, _outPort);
+                break;
+            case DefaultGateCode.Not:
+                DefaultGateOperators.Not(_inPortA, _outPort);
                 break;
             case DefaultGateCode.Xor:
                 DefaultGateOperators.Xor(_inPortA, _inPortB, _outPort);
@@ -53,5 +50,39 @@ public class DefaultGate : MonoBehaviour
                 DefaultGateOperators.Xnor(_inPortA, _inPortB, _outPort);
                 break;
         }
+    }
+
+    public void SetGateCode(DefaultGateCode code)
+    {
+        _gateCode = code;
+        _renderer.sprite = AssetsManager.Instance.GetDefaultGateSprite(_gateCode);
+    }
+
+    public PortGateCode GetPortCode(Port port)
+    {
+        if (port == _inPortA)
+            return PortGateCode.InputA;
+
+        if (port == _inPortB)
+            return PortGateCode.InputB;
+
+        if (port == _outPort)
+            return PortGateCode.Output;
+
+        return (PortGateCode)(-1);
+    }
+
+    public Port GetPortByCode(PortGateCode portCode)
+    {
+        if (portCode == PortGateCode.InputA)
+            return _inPortA;
+
+        if (portCode == PortGateCode.InputB)
+            return _inPortB;
+
+        if (portCode == PortGateCode.Output)
+            return _outPort;
+
+        return null;
     }
 }

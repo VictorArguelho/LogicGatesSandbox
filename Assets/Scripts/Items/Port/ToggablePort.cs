@@ -8,6 +8,8 @@ public class ToggablePort : MonoBehaviour
     private Selectable _selectable;
     private Port _port;
 
+    public bool Signal => _port.Signal;
+
     private void Awake()
     {
         _selectable = GetComponent<Selectable>();
@@ -17,6 +19,9 @@ public class ToggablePort : MonoBehaviour
     private void Update()
     {
         if (_selectable.State == SelectionState.Selected && Input.GetKeyDown(KeyCode.E))
-            _port.SetSignal(!_port.Signal);
+            SetSignal(!_port.Signal);
     }
+
+    public void SetSignal(bool signal) =>
+        _port.SetSignal(signal);
 }

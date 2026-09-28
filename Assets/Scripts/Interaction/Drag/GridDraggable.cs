@@ -29,7 +29,14 @@ public class GridDraggable : Draggable
         base.StartDragging();
 
         _realPosition = _griddedPosition;
-    }   
+    }
+
+    public void SetPosition(Vector2 position)
+    {
+        _realPosition = position;
+        UpdateGriddedPosition();
+        transform.position = _griddedPosition;
+    }
 
     public override void ApplyMove(Vector2 move)
     {

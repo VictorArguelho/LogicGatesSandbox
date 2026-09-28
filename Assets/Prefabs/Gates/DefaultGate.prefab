@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7640727728927706269}
   - component: {fileID: 4008851388902370556}
   - component: {fileID: 1187157881724835131}
-  - component: {fileID: 3419090493601430487}
   - component: {fileID: 8592476919920790818}
+  - component: {fileID: 7825011280866801742}
   m_Layer: 0
   m_Name: DefaultGate
   m_TagString: Untagged
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df088ca3b359e143be8b0cbd215e96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Selectable
+  _priority: 0
 --- !u!114 &4008851388902370556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,22 +157,6 @@ MonoBehaviour:
   _gridSize: 1
   _gridOffset: {x: 0.5, y: 0.5}
   _smoothSpeed: 15
---- !u!114 &3419090493601430487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705353029732462963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cbe28ee71ffd754980889739dc5fdb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DefaultGate
-  _gateCode: 0
-  _inPortA: {fileID: 4200196478274918444}
-  _inPortB: {fileID: 1246836140497926899}
-  _outPort: {fileID: 145997629875837512}
 --- !u!114 &8592476919920790818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +170,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deletable
   _canBeDeletedByUser: 1
+--- !u!114 &7825011280866801742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705353029732462963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4270bce424af340b91779fbeca4665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefaultGate
+  _gateCode: 0
+  _inPortA: {fileID: 4200196478274918444}
+  _inPortB: {fileID: 1246836140497926899}
+  _outPort: {fileID: 145997629875837512}
 --- !u!1 &5030854113669843270
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df088ca3b359e143be8b0cbd215e96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Selectable
+  _priority: 0
 --- !u!114 &8481699161007928215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df088ca3b359e143be8b0cbd215e96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Selectable
+  _priority: 0
 --- !u!114 &6719685079927624732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,6 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df088ca3b359e143be8b0cbd215e96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Selectable
+  _priority: 0
 --- !u!114 &7242213462661580993
 MonoBehaviour:
   m_ObjectHideFlags: 0

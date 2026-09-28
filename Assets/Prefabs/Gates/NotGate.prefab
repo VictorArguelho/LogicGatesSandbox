@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4008851388902370556}
   - component: {fileID: 1187157881724835131}
   - component: {fileID: 8592476919920790818}
-  - component: {fileID: 444143941624495103}
+  - component: {fileID: 2016889269630528304}
   m_Layer: 0
   m_Name: NotGate
   m_TagString: Untagged
@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df088ca3b359e143be8b0cbd215e96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Selectable
+  _priority: 0
 --- !u!114 &4008851388902370556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deletable
   _canBeDeletedByUser: 1
---- !u!114 &444143941624495103
+--- !u!114 &2016889269630528304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,10 +178,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1705353029732462963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e071ee2d6607746bd3ce2d83bb29d6, type: 3}
+  m_Script: {fileID: 11500000, guid: ae4270bce424af340b91779fbeca4665, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NotGate
-  _inPort: {fileID: 4200196478274918444}
+  m_EditorClassIdentifier: Assembly-CSharp::DefaultGate
+  _gateCode: 4
+  _inPortA: {fileID: 4200196478274918444}
+  _inPortB: {fileID: 0}
   _outPort: {fileID: 145997629875837512}
 --- !u!1 &5030854113669843270
 GameObject:
@@ -317,6 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df088ca3b359e143be8b0cbd215e96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Selectable
+  _priority: 0
 --- !u!114 &8481699161007928215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,6 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df088ca3b359e143be8b0cbd215e96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Selectable
+  _priority: 0
 --- !u!114 &7242213462661580993
 MonoBehaviour:
   m_ObjectHideFlags: 0

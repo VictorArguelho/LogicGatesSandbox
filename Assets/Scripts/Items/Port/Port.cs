@@ -48,6 +48,9 @@ public class Port : MonoBehaviour
         ConnectedPortsAtOut.Clear();
     }
 
+    public PortData GetData() =>
+        new(this);
+
     public void SetSignal(bool signal)
     {
         if (Signal == signal)
