@@ -47,8 +47,8 @@ public class GridDraggable : Draggable
     private void UpdateGriddedPosition()
     {
         _griddedPosition = new Vector2(
-            Mathf.Round(_realPosition.x / _gridSize) * _gridSize,
-            Mathf.Round(_realPosition.y / _gridSize) * _gridSize
+            Mathf.Floor(_realPosition.x / _gridSize) * _gridSize,
+            Mathf.Floor(_realPosition.y / _gridSize) * _gridSize
         ) + _gridOffset;
     }
 

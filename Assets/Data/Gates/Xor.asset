@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ea80f19af0d624599418b3eaa60bdb, type: 3}
   m_Name: Xor
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  _code: 3
+  _code: 4
   _name: Porta XOR
   _image: {fileID: -6939048949863128186, guid: 389845c9a9185df41a1e196b50acfb82, type: 3}
   _description: "A porta [XOR] (EXCLUSIVE OR) recebe duas entradas e possui uma sa\xEDda.

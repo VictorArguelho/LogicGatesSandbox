@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ea80f19af0d624599418b3eaa60bdb, type: 3}
   m_Name: Or
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  _code: 1
+  _code: 2
   _name: Porta OR
   _image: {fileID: 220277949849798493, guid: 4cb3aa84250b20f4c80c7106ae650023, type: 3}
   _description: "A porta [OR] recebe duas entradas e possui uma sa\xEDda. A sa\xEDda

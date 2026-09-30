@@ -17,17 +17,17 @@ public class AssetsManager : MonoBehaviour
         Instance = this;
     }
 
-    public Sprite GetDefaultGateSprite(DefaultGateCode code)
+    public Sprite GetDefaultGateSprite(GateCode code)
     {
         return code switch
         {
-            DefaultGateCode.And => _andSprite,
-            DefaultGateCode.Or => _orSprite,
-            DefaultGateCode.Not => _notSprite,
-            DefaultGateCode.Xor => _xorSprite,
-            DefaultGateCode.Nor => _norSprite,
-            DefaultGateCode.Nand => _nandSprite,
-            DefaultGateCode.Xnor => _xnorSprite,
+            GateCode.And => _andSprite,
+            GateCode.Or => _orSprite,
+            GateCode.Not => _notSprite,
+            GateCode.Xor => _xorSprite,
+            GateCode.Nor => _norSprite,
+            GateCode.Nand => _nandSprite,
+            GateCode.Xnor => _xnorSprite,
             _ => null
         };
     }
