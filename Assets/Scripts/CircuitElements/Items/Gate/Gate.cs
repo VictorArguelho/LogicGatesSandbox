@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(GridDraggable))]
+[RequireComponent(typeof(Draggable))]
 [RequireComponent(typeof(SelectableAppearance))]
 [RequireComponent(typeof(Deletable))]
 [RequireComponent(typeof(SpriteRenderer))]

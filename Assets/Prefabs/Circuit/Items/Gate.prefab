@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3102986736162048472}
   - component: {fileID: 7640727728927706269}
   - component: {fileID: 4008851388902370556}
-  - component: {fileID: 1187157881724835131}
   - component: {fileID: 8592476919920790818}
+  - component: {fileID: 3140434288450754774}
   - component: {fileID: 7825011280866801742}
   m_Layer: 0
   m_Name: Gate
@@ -142,21 +142,6 @@ MonoBehaviour:
   _defaultColor: {r: 1, g: 1, b: 1, a: 1}
   _mouseOverColor: {r: 0.75, g: 0.75, b: 0.75, a: 0.9}
   _selectedColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.8}
---- !u!114 &1187157881724835131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705353029732462963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd0500f9bf0418d42901ffb90503ed9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GridDraggable
-  _gridSize: 1
-  _gridOffset: {x: 0.5, y: 0.5}
-  _smoothSpeed: 15
 --- !u!114 &8592476919920790818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +155,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deletable
   _canBeDeletedByUser: 1
+--- !u!114 &3140434288450754774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705353029732462963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76b1761cfb094eb4dbda37742c6a7aa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreeDraggable
 --- !u!114 &7825011280866801742
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class SelectedItemSpawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             CircuitElementSpawner.TrySpawnItem(
                 ItemSelector.Instance.SelectedItem.Code,
-                MouseManager.GriddedMouseWorldPosition
+                MouseManager.MouseWorldPosition
             );
     }
 }

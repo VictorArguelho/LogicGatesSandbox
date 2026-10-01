@@ -20,7 +20,7 @@ public class CopyPasteManager : MonoBehaviour
                 SelectionManager.SelectedSelectables
                     .Select(s => s.gameObject)
                     .ToArray(),
-                MouseManager.GriddedMouseWorldPosition
+                MouseManager.MouseWorldPosition
             );
 
             _hasClipboard = true;
@@ -33,7 +33,7 @@ public class CopyPasteManager : MonoBehaviour
         {
             CircuitRestorer.Restore(
                 _clipboard,
-                MouseManager.GriddedMouseWorldPosition
+                MouseManager.MouseWorldPosition
             );
         }
     }
