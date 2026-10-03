@@ -50,6 +50,9 @@ TagManager:
   - name: Wires
     uniqueID: 3427709639
     locked: 0
+  - name: PlacePreview
+    uniqueID: 1910088915
+    locked: 0
   - name: UI
     uniqueID: 3845901931
     locked: 0

@@ -1,35 +1,37 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using System;
+using System.Linq;
 
-public class CopyPasteManager : MonoBehaviour
+public class CopyPasteManager : Singleton<CopyPasteManager>
 {
-    private CircuitRestoreData _clipboard;
-    private bool _hasClipboard;
+    public bool HasClipboard { get; private set; }
+    public CircuitRestoreData Clipboard { get; private set; }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         InputManager.Instance.OnCopy += HandleCopy;
         InputManager.Instance.OnConfirmPaste += HandlePaste;
     }
 
     private void HandleCopy()
     {
-        _clipboard = CircuitDataBuilder.Build(
+        Clipboard = CircuitDataBuilder.Build(
                 SelectionManager.SelectedSelectables
                     .Select(s => s.gameObject)
                     .ToArray(),
                 MouseManager.MouseWorldPosition
             );
 
-        _hasClipboard = true;
+        HasClipboard = true;
     }
 
     private void HandlePaste()
     {
-        if (_hasClipboard)
+        if (HasClipboard)
         {
             CircuitRestorer.Restore(
-                _clipboard,
+                Clipboard,
                 MouseManager.MouseWorldPosition
             );
         }
