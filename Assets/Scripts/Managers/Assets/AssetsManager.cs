@@ -2,6 +2,10 @@
 
 public class AssetsManager : Singleton<AssetsManager>
 {
+    [Header("Tools")]
+    [SerializeField] private Sprite _selectTool;
+    [SerializeField] private Sprite _cableTool;
+
     [Header("Gates")]
     [SerializeField] private Sprite _andSprite;
     [SerializeField] private Sprite _orSprite;
@@ -14,6 +18,16 @@ public class AssetsManager : Singleton<AssetsManager>
     [Header("Items")]
     [SerializeField] private Sprite _portSprite;
     [SerializeField] private Sprite _toggablePortSprite;
+
+    public Sprite GetToolSprite(ToolCode code)
+    {
+        return code switch
+        {
+            ToolCode.Selection => _selectTool,
+            ToolCode.Cable => _cableTool,
+            _ => null
+        };
+    }
 
     public SpriteCode TryGetSpriteCode(Sprite sprite)
     {

@@ -1,5 +1,6 @@
 ﻿public enum ToolCode
 {
     Selection,
-    Wire
+    Cable,
+    None
 }

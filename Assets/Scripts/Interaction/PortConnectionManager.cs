@@ -51,7 +51,7 @@ public class PortConnectionManager : Singleton<PortConnectionManager>
         if (button != MouseButtonCode.Left)
             return;
 
-        if (ToolManager.Instance.CurrentTool != ToolCode.Wire)
+        if (ToolManager.Instance.CurrentTool != ToolCode.Cable)
             return;
 
         if (_isConnecting)
@@ -72,7 +72,7 @@ public class PortConnectionManager : Singleton<PortConnectionManager>
         if (button != MouseButtonCode.Left)
             return;
 
-        if (ToolManager.Instance.CurrentTool != ToolCode.Wire)
+        if (ToolManager.Instance.CurrentTool != ToolCode.Cable)
             return;
 
         if (!_isConnecting)

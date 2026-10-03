@@ -2,7 +2,7 @@
 
 public class ToolManager : Singleton<ToolManager>
 {
-    public ToolCode CurrentTool { get; private set; } = ToolCode.Selection;
+    public ToolCode CurrentTool { get; private set; } = ToolCode.None;
 
     public event Action<ToolCode> OnToolChange;
 
@@ -11,8 +11,11 @@ public class ToolManager : Singleton<ToolManager>
         base.Awake();
 
         InputManager.Instance.OnSwitchSelectTool += () => SwitchTool(ToolCode.Selection);
-        InputManager.Instance.OnSwitchCableTool += () => SwitchTool(ToolCode.Wire);
+        InputManager.Instance.OnSwitchCableTool += () => SwitchTool(ToolCode.Cable);
     }
+
+    private void Start() =>
+        SwitchTool(ToolCode.Selection);
 
     private void SwitchTool(ToolCode code)
     {
