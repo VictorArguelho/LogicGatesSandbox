@@ -53,7 +53,7 @@ public static class CircuitRestorer
 
     private static GameObject TryRestoreItem(ItemRestoreData itemData)
     {
-        var item = CircuitElementSpawner.TrySpawnItem(itemData.ItemCode, itemData.RelativePosition + _position);
+        var item = CircuitElementSpawner.TrySpawnItem(itemData.ItemData, itemData.RelativePosition + _position);
 
         if (item == null)
             return null;

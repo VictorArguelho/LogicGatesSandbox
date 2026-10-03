@@ -6,7 +6,7 @@ public class ItemMenu : MonoBehaviour
     [SerializeField] private Transform _content;
     [SerializeField] private ItemSelector _itemSelector;
     [SerializeField] private ItemInfoPanel _itemInfoPanel;
-    [SerializeField] private ItemData[] _items;
+    [SerializeField] private ItemDataAsset[] _items;
 
     private ItemCategory _currentCategory;
 
@@ -27,7 +27,7 @@ public class ItemMenu : MonoBehaviour
     {
         foreach (var item in _items)
         {
-            if (item.Category != _currentCategory)
+            if (item.GetData().Category != _currentCategory)
                 continue;
 
             var itemButton = Instantiate(

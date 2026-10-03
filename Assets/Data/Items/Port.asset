@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ea80f19af0d624599418b3eaa60bdb, type: 3}
+  m_Script: {fileID: 11500000, guid: 18dced9647787a0459795e280b0ba06c, type: 3}
   m_Name: Port
-  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDataAsset
   _code: 8
   _name: Conector
-  _image: {fileID: -262505974656634397, guid: dc4d2bb3fbfe1564bb6b65a199db2b9f, type: 3}
+  _sprite: {fileID: -262505974656634397, guid: dc4d2bb3fbfe1564bb6b65a199db2b9f, type: 3}
   _description: "O conector serve como intermedi\xE1rio para sinais. Ele pode ter
     somente uma entrada e um n\xFAmero ilimitado de sa\xEDdas. O valor de todas as
     sa\xEDdas \xE9 igual ao valor da entrada."
-  _category: 1
+  _category: 2
+  _scale: 0.6
+  _baseSize: {x: 1, y: 1}

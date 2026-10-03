@@ -118,7 +118,7 @@ public class Port : MonoBehaviour, IRestorableItem, IRestorable<PortRestoreData>
     public ItemRestoreData GetItemRestoreData(Vector2 relativePosition)
     {
         if (TryGetComponent<SpawnedItem>(out var spawnedComponent))
-            return new(spawnedComponent.Id, relativePosition, ItemCode.Port);
+            return new(spawnedComponent.Id, relativePosition, spawnedComponent.Data);
 
         return ItemRestoreData.Invalid;
     }

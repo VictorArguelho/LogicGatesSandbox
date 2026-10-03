@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ea80f19af0d624599418b3eaa60bdb, type: 3}
+  m_Script: {fileID: 11500000, guid: 18dced9647787a0459795e280b0ba06c, type: 3}
   m_Name: ToggablePort
-  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDataAsset
   _code: 9
   _name: "Conector Ativ\xE1vel"
-  _image: {fileID: 2023123577264429015, guid: 9c840b5fafe014547af9278eefc1ca3e, type: 3}
+  _sprite: {fileID: 2023123577264429015, guid: 9c840b5fafe014547af9278eefc1ca3e, type: 3}
   _description: "O conector ativ\xE1vel permite enviar um sinal desejado. Ele n\xE3o
     possui entradas e pode ter um n\xFAmero ilimitado de sa\xEDdas. O valor de todas
     as sa\xEDdas \xE9 igual ao valor definido no conector."
-  _category: 1
+  _category: 2
+  _scale: 0.6
+  _baseSize: {x: 1, y: 1}

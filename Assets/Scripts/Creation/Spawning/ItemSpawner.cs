@@ -11,28 +11,30 @@ public class ItemSpawner : Singleton<ItemSpawner>
 
     private readonly HashSet<uint> _takenIds = new();
 
-    public SpawnedItem TrySpawnItem(ItemCode itemCode, Vector2 position)
+    public SpawnedItem TrySpawnItem(ItemData itemData, Vector2 position)
     {
-        var item = TryInstantiateItem(itemCode, position);
+        var item = TryCreateItem(itemData, position);
 
         if (item == null)
             return null;
 
+        item.transform.localScale = Vector2.one * itemData.Scale;
+
         var spawnedComponent = item.AddComponent<SpawnedItem>();
         var id = GenerateItemId();
 
-        spawnedComponent.Initialize(id, itemCode);
+        spawnedComponent.Initialize(id, itemData);
         spawnedComponent.OnDeleted += () => _takenIds.Remove(id);
 
         return spawnedComponent;
     }
 
-    private GameObject TryInstantiateItem(ItemCode itemCode, Vector2 position)
+    private GameObject TryCreateItem(ItemData itemData, Vector2 position)
     {
-        if (itemCode.ToGateCode() != GateCode.None)
-            return SpawnGate(itemCode.ToGateCode(), position);
+        if (itemData.Code.ToGateCode() != GateCode.None)
+            return SpawnGate(itemData, position);
 
-        var prefab = GetPrefab(itemCode);
+        var prefab = GetPrefab(itemData);
 
         if (prefab == null)
             return null;
@@ -40,15 +42,15 @@ public class ItemSpawner : Singleton<ItemSpawner>
         return Instantiate(prefab, position, Quaternion.identity);
     }
 
-    private GameObject SpawnGate(GateCode gateCode, Vector2 position)
+    private GameObject SpawnGate(ItemData itemData, Vector2 position)
     {
         var gate = Instantiate(_gatePrefab, position, Quaternion.identity).GetComponent<Gate>();
-        gate.Initialize(gateCode);
+        gate.Initialize(itemData);
         return gate.gameObject;
     }
 
-    private GameObject GetPrefab(ItemCode itemCode) =>
-        itemCode switch
+    private GameObject GetPrefab(ItemData itemData) =>
+        itemData.Code switch
         {
             ItemCode.Port => _portPrefab,
             ItemCode.ToggablePort => _toggablePortPrefab,

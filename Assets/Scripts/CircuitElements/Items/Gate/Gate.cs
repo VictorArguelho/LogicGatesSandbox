@@ -48,10 +48,10 @@ public class Gate : MonoBehaviour, IHasPorts, IRestorableItem
         }
     }
 
-    public void Initialize(GateCode code)
+    public void Initialize(ItemData itemData)
     {
-        _gateCode = code;
-        _renderer.sprite = AssetsManager.Instance.GetDefaultGateSprite(_gateCode);
+        _gateCode = itemData.Code.ToGateCode();
+        _renderer.sprite = AssetsManager.Instance.TryGetSprite(itemData.SpriteCode);
 
         if (_gateCode == GateCode.Not)
         {
@@ -95,7 +95,7 @@ public class Gate : MonoBehaviour, IHasPorts, IRestorableItem
     public ItemRestoreData GetItemRestoreData(Vector2 relativePosition)
     {
         if (TryGetComponent<SpawnedItem>(out var spawnedComponent))
-            return new(spawnedComponent.Id, relativePosition, _gateCode.ToItemCode());
+            return new(spawnedComponent.Id, relativePosition, spawnedComponent.Data);
         return ItemRestoreData.Invalid;
     }
 }

@@ -28,7 +28,7 @@ public class ToggablePort : MonoBehaviour, IRestorable<ToggablePortRestoreData>
 
     private void HandleActivate()
     {
-        if (_selectable.State == SelectionState.Selected)
+        if (_selectable.State == SelectionState.Selected || _selectable.State == SelectionState.MouseOver)
             SetSignal(!_port.Signal);
     }
 }

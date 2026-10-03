@@ -5,15 +5,15 @@ public class SpawnedItem : MonoBehaviour
 {
     [SerializeField] private uint id;
     public uint Id { get; private set; }
-    public ItemCode Code { get; private set; }
+    public ItemData Data { get; private set; }
 
     public event Action OnDeleted;
 
-    public void Initialize(uint id, ItemCode code)
+    public void Initialize(uint id, ItemData data)
     {
         this.id = id;
         Id = id;
-        Code = code;
+        Data = data;
     }
 
     private void OnDestroy() =>

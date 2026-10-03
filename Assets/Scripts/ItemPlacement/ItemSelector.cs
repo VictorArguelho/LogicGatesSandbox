@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class ItemSelector : Singleton<ItemSelector>
 {
-    [SerializeField] private ItemData _defaultItem;
+    [SerializeField] private ItemDataAsset _defaultItem;
 
+    public ItemDataAsset SelectedItemAsset { get; private set; }
     public ItemData SelectedItem { get; private set; }
 
     public event Action<ItemData> OnItemSelected;
@@ -12,12 +13,14 @@ public class ItemSelector : Singleton<ItemSelector>
     private void Start() =>
         Select(_defaultItem);
 
-    public void Select(ItemData item)
+    public void Select(ItemDataAsset item)
     {
-        if (SelectedItem == item)
+        if (SelectedItemAsset == item)
             return;
 
-        SelectedItem = item;
-        OnItemSelected?.Invoke(item);
+        SelectedItemAsset = item;
+        SelectedItem = item.GetData();
+
+        OnItemSelected?.Invoke(SelectedItem);
     }
 }

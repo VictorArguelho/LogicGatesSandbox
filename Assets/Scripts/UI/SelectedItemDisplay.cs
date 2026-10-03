@@ -12,7 +12,7 @@ public class SelectedItemDisplay : MonoBehaviour
 
     private void UpdateDisplay(ItemData item)
     {
-        _image.sprite = item.Image;
+        _image.sprite = AssetsManager.Instance.TryGetSprite(item.SpriteCode);
         _name.text = item.Name;
     }
 }

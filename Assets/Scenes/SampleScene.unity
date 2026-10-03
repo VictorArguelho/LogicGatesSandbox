@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2ca6fac46b214439722f1bb297e0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCategoryButton
-  _category: 1
+  _category: 2
   _itemMenu: {fileID: 1781384381}
 --- !u!114 &546206451
 MonoBehaviour:
@@ -1287,7 +1287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2ca6fac46b214439722f1bb297e0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCategoryButton
-  _category: 0
+  _category: 1
   _itemMenu: {fileID: 1781384381}
 --- !u!114 &847118771
 MonoBehaviour:
@@ -1918,6 +1918,8 @@ MonoBehaviour:
   _norSprite: {fileID: 8294116306470479919, guid: 57ef9d80f32ac5d4a9b42c8b62e11f9a, type: 3}
   _nandSprite: {fileID: 3223091865968251079, guid: c0b5baad67bf7f34f9afd47140172fe6, type: 3}
   _xnorSprite: {fileID: 1612683358822506722, guid: 4550da6577048f7478f099a71b1f4f91, type: 3}
+  _portSprite: {fileID: -262505974656634397, guid: dc4d2bb3fbfe1564bb6b65a199db2b9f, type: 3}
+  _toggablePortSprite: {fileID: 2023123577264429015, guid: 9c840b5fafe014547af9278eefc1ca3e, type: 3}
 --- !u!1 &1121256705
 GameObject:
   m_ObjectHideFlags: 0
@@ -3078,14 +3080,14 @@ MonoBehaviour:
   _itemInfoPanel: {fileID: 1694678071}
   _items:
   - {fileID: 11400000, guid: 77615e14a1bafff4492d6aaea204e377, type: 2}
-  - {fileID: 11400000, guid: cbe0a8b8328b8dd409a9738f07d90ac2, type: 2}
-  - {fileID: 11400000, guid: 7bf00e4e5736fb741815f81aa89e0cb4, type: 2}
-  - {fileID: 11400000, guid: 5cc24c13bb891514f8364d3da8bef3a9, type: 2}
-  - {fileID: 11400000, guid: 0be171f3442a5b44eb0b32fe60b4dc1d, type: 2}
-  - {fileID: 11400000, guid: add647a72396cb74291223e946558ddf, type: 2}
-  - {fileID: 11400000, guid: 7b255341a36685a42af6f0a54c4e6c27, type: 2}
+  - {fileID: 11400000, guid: 201b013b22f1aab4abfbfad10beb94b7, type: 2}
+  - {fileID: 11400000, guid: 3ef45774a67a722429c0fecd7ac4ab81, type: 2}
+  - {fileID: 11400000, guid: 97f831fdbc231ab4296f10aee48ff7ca, type: 2}
+  - {fileID: 11400000, guid: 8e35e5842f0746448b2eaffa19f83b02, type: 2}
   - {fileID: 11400000, guid: 2174aa8cf122cda48be160a73d55c7fa, type: 2}
-  - {fileID: 11400000, guid: 581a5e58f21db7a4a821a09f640f906c, type: 2}
+  - {fileID: 11400000, guid: 5882991bf0cfc794b9f01f7692e65962, type: 2}
+  - {fileID: 11400000, guid: 860649f6c99d13d47842a7cfe337d9cf, type: 2}
+  - {fileID: 11400000, guid: 0149beebb658e304b882815caa2e5a3a, type: 2}
 --- !u!114 &1781384382
 MonoBehaviour:
   m_ObjectHideFlags: 0

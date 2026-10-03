@@ -5,12 +5,12 @@ public class ItemButton : MonoBehaviour
 {
     [SerializeField] private Image _image;
 
-    private ItemData _item;
+    private ItemDataAsset _item;
     private ItemSelector _itemSelector;
     private ItemInfoPanel _itemInfoPanel;
 
     public void Initialize(
-        ItemData item,
+        ItemDataAsset item,
         ItemSelector itemSelector,
         ItemInfoPanel itemInfoPanel)
     {
@@ -18,12 +18,12 @@ public class ItemButton : MonoBehaviour
         _itemSelector = itemSelector;
         _itemInfoPanel = itemInfoPanel;
 
-        _image.sprite = item.Image;
+        _image.sprite = AssetsManager.Instance.TryGetSprite(item.GetData().SpriteCode);
     }
 
     public void Select() =>
         _itemSelector.Select(_item);
 
     public void ShowInfo() =>
-        _itemInfoPanel.Show(_item);
+        _itemInfoPanel.Show(_item.GetData());
 }
