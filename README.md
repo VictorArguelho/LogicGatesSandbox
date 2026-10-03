@@ -39,6 +39,8 @@ Ele possui uma entrada e pode possuir diversas saídas, sendo que todas as saíd
 
 Também existe o **conector ativável**, que permite definir manualmente o valor do sinal sem precisar de uma entrada.
 
+O conector ativável pode ser alternado quando está selecionado ou quando o mouse está sobre ele.
+
 ### Cabos
 
 Os componentes podem ser conectados utilizando **cabos**, permitindo criar circuitos e transportar sinais entre diferentes partes da construção.
@@ -53,7 +55,7 @@ O jogador possui liberdade para construir seus circuitos em um espaço de trabal
 
 * Adicionar componentes.
 * Posicionar componentes livremente.
-* Mover componentes seguindo a grade.
+* Mover componentes livremente pelo espaço de construção.
 * Selecionar componentes.
 * Selecionar múltiplos componentes.
 * Excluir componentes.
@@ -67,15 +69,15 @@ O jogador possui liberdade para construir seus circuitos em um espaço de trabal
 
 O jogo possui um sistema de **copiar e colar** que permite duplicar componentes selecionados e suas conexões.
 
-Ao copiar uma construção, o sistema preserva o posicionamento relativo dos componentes, permitindo recriar a estrutura em outra posição da grade.
+Ao copiar uma construção, o sistema preserva o posicionamento relativo dos componentes, permitindo recriar a estrutura em outra posição.
 
 As conexões entre os componentes também são recriadas ao realizar a colagem, permitindo duplicar circuitos completos de forma rápida.
 
 ### Grade
 
-O espaço de construção possui uma **grade infinita**, que auxilia no posicionamento e alinhamento dos componentes.
+O espaço de construção possui uma **grade infinita**, que auxilia na visualização e organização dos componentes.
 
-A escala da grade se adapta conforme o zoom da câmera, permitindo trabalhar tanto com circuitos pequenos quanto com construções maiores.
+A escala da grade se adapta conforme o zoom da câmera, permitindo visualizar diferentes níveis de escala durante a construção.
 
 ### Sistema de seleção
 
@@ -130,19 +132,19 @@ Dessa forma, componentes simples podem ser utilizados como blocos de construçã
 
 ## Controles
 
-| Ação                               | Controle                                    |
-| ---------------------------------- | ------------------------------------------- |
-| Selecionar                         | Botão esquerdo do mouse                     |
-| Mover componente                   | Segurar o botão direito do mouse e arrastar |
-| Mover Camera                       | Segurar o botão do meio do mouse e arrastar |
-| Zoom In e Zoom Out                 | Scroll do mouse                             |
-| Excluir componente                 | `Delete` / `Backspace`                      |
-| Copiar seleção                     | `C`                                         |
-| Colar seleção                      | `V`                                         |
-| Alternar ferramenta de seleção     | `1`                                         |
-| Alternar ferramenta de cabos       | `2`                                         |
-| Ativar/desativar conector ativável | `E`                                         |
-| Criar componente selecionado       | `Space`                                     |
+| Ação | Controle |
+|---|---|
+| Selecionar | Botão esquerdo do mouse |
+| Mover componente | Segurar o botão direito do mouse e arrastar |
+| Mover câmera | Segurar o botão do meio do mouse e arrastar |
+| Zoom in e zoom out | Scroll do mouse |
+| Excluir componente | `Backspace` |
+| Copiar seleção | `C` |
+| Colar seleção | `V` |
+| Alternar ferramenta de seleção | `1` |
+| Alternar ferramenta de cabos | `2` |
+| Ativar/desativar conector ativável | `F` |
+| Criar componente selecionado | `E` |
 
 > Os controles podem sofrer alterações durante o desenvolvimento.
 
