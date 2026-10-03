@@ -13,12 +13,7 @@ public class ToggablePort : MonoBehaviour, IRestorable<ToggablePortRestoreData>
     {
         _selectable = GetComponent<Selectable>();
         _port = GetComponent<Port>();
-    }
-
-    private void Update()
-    {
-        if (_selectable.State == SelectionState.Selected && Input.GetKeyDown(KeyCode.E))
-            SetSignal(!_port.Signal);
+        InputManager.Instance.OnActivateItem += HandleActivate;
     }
 
     public void SetSignal(bool signal) =>
@@ -29,5 +24,11 @@ public class ToggablePort : MonoBehaviour, IRestorable<ToggablePortRestoreData>
         if (TryGetComponent<SpawnedItem>(out var spawnedComponent))
             return new(spawnedComponent.Id, Signal);
         return ToggablePortRestoreData.Invalid;
+    }
+
+    private void HandleActivate()
+    {
+        if (_selectable.State == SelectionState.Selected)
+            SetSignal(!_port.Signal);
     }
 }

@@ -15,11 +15,6 @@ public static class CircuitDataBuilder
 
         foreach (var gameObject in gameObjects)
         {
-            Debug.Log(
-                $"GameObject: {gameObject.name}\n" +
-                $"Position: {gameObject.transform.position}"
-            );
-
             if (gameObject.TryGetComponent<IRestorableItem>(out var itemRestorable))
             {
                 var itemRelativePosition =(Vector2)gameObject.transform.position - relativePosition;
@@ -42,14 +37,10 @@ public static class CircuitDataBuilder
             }
         }
 
-        CircuitRestoreData a = new(
+        return new(
             _restoredItems.ToArray(),
             _restoredToggablePorts.ToArray(),
             _restoredCables.ToArray()
         );
-
-        Debug.Log(JsonUtility.ToJson(a));
-
-        return a;
     }
 }

@@ -29,7 +29,7 @@ public static class SelectionManager
         MouseManager.OnButtonDown += HandleMouseClick;
         MouseManager.OnButtonUp += HandleMouseUp;
 
-        ToolManager.OnToolChange += (tool) =>
+        ToolManager.Instance.OnToolChange += (tool) =>
         {
             if (tool != ToolCode.Selection)
                 DeselectAll();
@@ -44,7 +44,7 @@ public static class SelectionManager
         if (button != MouseButtonCode.Left)
             return;
 
-        if (ToolManager.CurrentTool != ToolCode.Selection)
+        if (ToolManager.Instance.CurrentTool != ToolCode.Selection)
             return;
 
         DeselectAll();
@@ -65,7 +65,7 @@ public static class SelectionManager
         if (button != MouseButtonCode.Left)
             return;
 
-        if (ToolManager.CurrentTool != ToolCode.Selection)
+        if (ToolManager.Instance.CurrentTool != ToolCode.Selection)
             return;
 
         if (!IsMultipleSelecting)

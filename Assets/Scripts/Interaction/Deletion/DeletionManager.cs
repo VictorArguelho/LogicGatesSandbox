@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 
-public class DeletionManager : MonoBehaviour
+public class DeletionManager : Singleton<DeletionManager>
 {
-    public static DeletionManager Instance { get; private set; }
     private readonly static List<Deletable> _delectables = new();
 
     public static void RegisterDeletable(Deletable deletable)
@@ -15,18 +13,19 @@ public class DeletionManager : MonoBehaviour
     public static void UnregisterDeletable(Deletable deletable) =>
         _delectables.Remove(deletable);
 
-    private void Awake() =>
-        Instance = this;
-
-    private void Update()
+    protected override void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Delete))
+        base.Awake();
+
+        InputManager.Instance.OnDelete += HandleDelete;
+    }
+
+    private void HandleDelete()
+    {
+        foreach (var deletable in _delectables.ToArray())
         {
-            foreach (var deletable in _delectables.ToArray())
-            {
-                if (deletable.IsSelected && deletable.CanBeDeletedByUser)
-                    deletable.Delete();
-            }
+            if (deletable.IsSelected && deletable.CanBeDeletedByUser)
+                deletable.Delete();
         }
     }
 }

@@ -1,23 +1,20 @@
 ﻿using System;
-using UnityEngine;
 
-public class ToolManager : MonoBehaviour
+public class ToolManager : Singleton<ToolManager>
 {
-    public static ToolCode CurrentTool { get; private set; } = ToolCode.Selection;
+    public ToolCode CurrentTool { get; private set; } = ToolCode.Selection;
 
-    public static event Action<ToolCode> OnToolChange;
+    public event Action<ToolCode> OnToolChange;
 
-    private void Update()
+    protected override void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            SwitchTool(ToolCode.Selection);
+        base.Awake();
 
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            SwitchTool(ToolCode.Wire);
+        InputManager.Instance.OnSwitchSelectTool += () => SwitchTool(ToolCode.Selection);
+        InputManager.Instance.OnSwitchCableTool += () => SwitchTool(ToolCode.Wire);
     }
 
-    public void SwitchTool(ToolCode code)
+    private void SwitchTool(ToolCode code)
     {
         if (CurrentTool == code)
             return;

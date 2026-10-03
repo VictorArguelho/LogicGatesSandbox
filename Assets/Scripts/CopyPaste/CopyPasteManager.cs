@@ -6,30 +6,27 @@ public class CopyPasteManager : MonoBehaviour
     private CircuitRestoreData _clipboard;
     private bool _hasClipboard;
 
-    private void Update()
+    private void Awake()
     {
-        HandleCopy();
-        HandlePaste();
+        InputManager.Instance.OnCopy += HandleCopy;
+        InputManager.Instance.OnConfirmPaste += HandlePaste;
     }
 
     private void HandleCopy()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            _clipboard = CircuitDataBuilder.Build(
+        _clipboard = CircuitDataBuilder.Build(
                 SelectionManager.SelectedSelectables
                     .Select(s => s.gameObject)
                     .ToArray(),
                 MouseManager.MouseWorldPosition
             );
 
-            _hasClipboard = true;
-        }
+        _hasClipboard = true;
     }
 
     private void HandlePaste()
     {
-        if (Input.GetKeyDown(KeyCode.V) && _hasClipboard)
+        if (_hasClipboard)
         {
             CircuitRestorer.Restore(
                 _clipboard,
