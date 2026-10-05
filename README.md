@@ -63,6 +63,8 @@ O jogador possui liberdade para construir seus circuitos em um espaço de trabal
 * Copiar componentes selecionados.
 * Colar componentes copiados.
 * Preservar as conexões entre componentes ao copiar e colar.
+* Salvar circuitos personalizados.
+* Carregar circuitos salvos posteriormente.
 * Testar diferentes combinações de portas lógicas.
 
 ### Copiar e colar
@@ -72,6 +74,18 @@ O jogo possui um sistema de **copiar e colar** que permite duplicar componentes 
 Ao copiar uma construção, o sistema preserva o posicionamento relativo dos componentes, permitindo recriar a estrutura em outra posição.
 
 As conexões entre os componentes também são recriadas ao realizar a colagem, permitindo duplicar circuitos completos de forma rápida.
+
+### Salvamento de circuitos
+
+O jogo possui um sistema de **salvamento de circuitos**, permitindo armazenar construções personalizadas para utilizá-las posteriormente.
+
+Ao salvar um circuito, o jogador pode definir:
+
+* Nome.
+* Descrição.
+* Imagem do circuito.
+
+Os circuitos salvos ficam disponíveis no menu de componentes e podem ser carregados novamente para continuar utilizando ou modificando a construção.
 
 ### Grade
 
@@ -106,6 +120,8 @@ Cada componente possui:
 * Categoria.
 
 Também é possível abrir uma janela de informações para consultar a função de cada componente antes de utilizá-lo.
+
+Os circuitos personalizados salvos pelo jogador também aparecem no menu de componentes.
 
 ## Conceitos abordados
 
@@ -145,6 +161,7 @@ Dessa forma, componentes simples podem ser utilizados como blocos de construçã
 | Alternar ferramenta de cabos | `2` |
 | Ativar/desativar conector ativável | `F` |
 | Criar componente selecionado | `E` |
+| Salvar circuito | `P` |
 
 > Os controles podem sofrer alterações durante o desenvolvimento.
 
