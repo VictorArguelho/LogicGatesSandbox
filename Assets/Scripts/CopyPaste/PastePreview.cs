@@ -1,5 +1,4 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,7 +9,7 @@ public class PastePreview : MonoBehaviour
     private bool _showPreview;
     private CircuitRestoreData _clipboard;
 
-    private List<(SpriteRenderer, Vector2)> _previewRenderers = new();
+    private readonly List<(SpriteRenderer, Vector2)> _previewRenderers = new();
 
     private void Awake()
     {

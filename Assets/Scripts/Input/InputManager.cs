@@ -12,6 +12,8 @@ public class InputManager : Singleton<InputManager>
     public KeyCode CopyKey { get; set; } = KeyCode.C;
     public KeyCode PasteKey { get; set; } = KeyCode.V;
 
+    public KeyCode SaveKey { get; set; } = KeyCode.P;
+
     public KeyCode ActivateKey { get; set; } = KeyCode.F;
 
     public event Action OnSwitchSelectTool;
@@ -25,17 +27,25 @@ public class InputManager : Singleton<InputManager>
     public event Action OnStartPaste;
     public event Action OnConfirmPaste;
 
+    public event Action OnSave;
+
     public event Action OnActivateItem;
 
     private bool _isPlacing;
     private bool _isPasting;
 
+    public bool DetectKeyPress { get; set; } = true;
+
     private void Update()
     {
+        if (!DetectKeyPress)
+            return;
+
         HandleTool();
         HandlePlace();
         HandleDelete();
         HandleCopyPaste();
+        HandleSave();
         HandleActivate();
     }
 
@@ -85,6 +95,12 @@ public class InputManager : Singleton<InputManager>
 
         if (Input.GetKeyDown(CopyKey))
             OnCopy?.Invoke();
+    }
+
+    private void HandleSave()
+    {
+        if (Input.GetKeyDown(SaveKey))
+            OnSave?.Invoke();
     }
 
     private void HandleActivate()

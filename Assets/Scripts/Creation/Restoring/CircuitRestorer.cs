@@ -7,6 +7,9 @@ public static class CircuitRestorer
     private static CircuitRestoreData _restoreData;
     private static Vector2 _position;
 
+    public static void Restore(CircuitData data, Vector2 position) =>
+        Restore(data.RestoreData, position);
+
     public static void Restore(CircuitRestoreData data, Vector2 position)
     {
         _idMap.Clear();
@@ -51,14 +54,14 @@ public static class CircuitRestorer
         }
     }
 
-    private static GameObject TryRestoreItem(ItemRestoreData itemData)
+    private static GameObject TryRestoreItem(ItemRestoreData itemRestoreData)
     {
-        var item = CircuitElementSpawner.TrySpawnItem(itemData.ItemData, itemData.RelativePosition + _position);
+        var item = CircuitElementSpawner.TrySpawnItem(itemRestoreData.ItemData, itemRestoreData.RelativePosition + _position);
 
         if (item == null)
             return null;
 
-        _idMap.Add(itemData.Id, item.gameObject);
+        _idMap.Add(itemRestoreData.Id, item.gameObject);
 
         return item.gameObject;
     }

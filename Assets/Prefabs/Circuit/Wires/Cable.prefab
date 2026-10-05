@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MouseCollider
   _size: {x: 1, y: 0.11}
-  _offset: {x: 0, y: 0}
+  _offset: {x: 0.5, y: 0}
 --- !u!114 &7423287066325769139
 MonoBehaviour:
   m_ObjectHideFlags: 0

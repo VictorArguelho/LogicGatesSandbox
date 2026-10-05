@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [Serializable]
-public struct PortRestoreData
+public struct PortRestoreData : IEquatable<PortRestoreData>
 {
     [SerializeField] private uint _id;
 
@@ -30,4 +30,25 @@ public struct PortRestoreData
         _id = id;
         _itemPortData = itemPortData;
     }
+
+    public readonly bool Equals(PortRestoreData other) =>
+        _id == other._id &&
+        _isFromItem == other._isFromItem &&
+        _itemPortData == other._itemPortData;
+
+    public override readonly bool Equals(object obj) =>
+        obj is PortRestoreData other && Equals(other);
+
+    public override readonly int GetHashCode() =>
+        HashCode.Combine(
+            _id,
+            _isFromItem,
+            _itemPortData
+        );
+
+    public static bool operator ==(PortRestoreData left, PortRestoreData right) =>
+        left.Equals(right);
+
+    public static bool operator !=(PortRestoreData left, PortRestoreData right) =>
+        !left.Equals(right);
 }
