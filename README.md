@@ -1,183 +1,56 @@
 # Logic Gates Sandbox
 
-Um jogo 2D sandbox feito em **C# com Unity**, focado em lógica digital e no funcionamento básico dos computadores.
+A sandbox de circuitos digitais focada na construção e simulação de sistemas lógicos.
 
-O objetivo do jogo é proporcionar um ambiente livre para **aprender, experimentar e construir circuitos lógicos**, permitindo que o jogador compreenda na prática como portas lógicas podem ser combinadas para processar sinais e formar sistemas mais complexos.
+O projeto permite criar circuitos utilizando portas lógicas, conectá-las livremente e experimentar com sistemas digitais cada vez mais complexos — desde circuitos simples até arquiteturas capazes de implementar operações e componentes de um computador.
 
 ## Objetivo
 
-O **Logic Gates Sandbox** busca tornar o aprendizado de lógica digital mais prático e visual.
+O objetivo do projeto é proporcionar uma experiência de construção livre de circuitos digitais, permitindo que o jogador monte, teste e explore sistemas lógicos sem limitações práticas de componentes.
 
-Em vez de apenas estudar tabelas-verdade e circuitos de forma teórica, o jogador pode colocar componentes em um espaço livre, conectá-los e observar diretamente como os sinais percorrem o circuito.
+Entre as possibilidades estão:
 
-A ideia é começar com componentes simples e, a partir deles, permitir a construção de sistemas cada vez mais complexos.
+- Construção livre de circuitos.
+- Portas lógicas como AND, OR e NOT.
+- Portas derivadas como NAND, NOR, XOR e XNOR.
+- Conexão de componentes através de fios.
+- Criação de circuitos complexos a partir de componentes simples.
+- Construção de sistemas digitais e computadores dentro da sandbox.
 
-## Features
+## Engine
 
-### Portas lógicas
+O projeto está sendo desenvolvido utilizando uma engine própria em **C#**, construída especificamente para as necessidades do Logic Gates Sandbox.
 
-O jogo possui as três portas lógicas fundamentais:
+A versão anterior do projeto foi desenvolvida utilizando Unity. A atual versão está sendo reescrita com foco em:
 
-* **AND**
-* **OR**
-* **NOT**
+- Alto desempenho.
+- Grande quantidade de componentes simultâneos.
+- Simulação eficiente de circuitos.
+- Renderização em larga escala.
+- Baixo overhead por componente.
+- Arquitetura especializada para circuitos digitais.
 
-Além delas, também estão disponíveis portas derivadas:
+### Tecnologias
 
-* **XOR**
-* **NAND**
-* **NOR**
-* **XNOR**
+- C#
+- .NET
+- Silk.NET
+- OpenGL
 
-As portas recebem sinais de entrada, processam esses sinais de acordo com sua operação lógica e produzem um sinal de saída.
+## Arquitetura
 
-### Conectores
+A engine não pretende reproduzir a arquitetura tradicional de engines genéricas.
 
-Um **conector** permite transmitir um sinal para diferentes partes do circuito.
+O objetivo é que a simulação e a renderização sejam tratadas de maneira mais eficiente, especialmente em circuitos de grande escala.
 
-Ele possui uma entrada e pode possuir diversas saídas, sendo que todas as saídas possuem o mesmo valor da entrada.
+## Estado do projeto
 
-Também existe o **conector ativável**, que permite definir manualmente o valor do sinal sem precisar de uma entrada.
+**Em desenvolvimento**
 
-O conector ativável pode ser alternado quando está selecionado ou quando o mouse está sobre ele.
+A versão atual está em processo de reescrita da antiga implementação em Unity para uma engine própria em C#.
 
-### Cabos
+## Repositório
 
-Os componentes podem ser conectados utilizando **cabos**, permitindo criar circuitos e transportar sinais entre diferentes partes da construção.
+A branch `main` contém a versão anterior do projeto desenvolvida em Unity.
 
-Isso possibilita combinar diversas portas e conectores para formar circuitos maiores.
-
-### Sandbox
-
-O jogador possui liberdade para construir seus circuitos em um espaço de trabalho sem uma estrutura de fases tradicional.
-
-É possível:
-
-* Adicionar componentes.
-* Posicionar componentes livremente.
-* Mover componentes livremente pelo espaço de construção.
-* Selecionar componentes.
-* Selecionar múltiplos componentes.
-* Excluir componentes.
-* Conectar componentes.
-* Copiar componentes selecionados.
-* Colar componentes copiados.
-* Preservar as conexões entre componentes ao copiar e colar.
-* Salvar circuitos personalizados.
-* Carregar circuitos salvos posteriormente.
-* Testar diferentes combinações de portas lógicas.
-
-### Copiar e colar
-
-O jogo possui um sistema de **copiar e colar** que permite duplicar componentes selecionados e suas conexões.
-
-Ao copiar uma construção, o sistema preserva o posicionamento relativo dos componentes, permitindo recriar a estrutura em outra posição.
-
-As conexões entre os componentes também são recriadas ao realizar a colagem, permitindo duplicar circuitos completos de forma rápida.
-
-### Salvamento de circuitos
-
-O jogo possui um sistema de **salvamento de circuitos**, permitindo armazenar construções personalizadas para utilizá-las posteriormente.
-
-Ao salvar um circuito, o jogador pode definir:
-
-* Nome.
-* Descrição.
-* Imagem do circuito.
-
-Os circuitos salvos ficam disponíveis no menu de componentes e podem ser carregados novamente para continuar utilizando ou modificando a construção.
-
-### Grade
-
-O espaço de construção possui uma **grade infinita**, que auxilia na visualização e organização dos componentes.
-
-A escala da grade se adapta conforme o zoom da câmera, permitindo visualizar diferentes níveis de escala durante a construção.
-
-### Sistema de seleção
-
-Os componentes possuem um sistema de seleção visual que permite identificar quais objetos estão sendo manipulados.
-
-A seleção também serve como base para diferentes interações com os componentes do circuito.
-
-### Ferramentas
-
-O jogo possui diferentes ferramentas para realizar ações específicas no ambiente.
-
-Atualmente, entre elas estão:
-
-* **Seleção**
-* **Conexão de cabos**
-
-### Interface de componentes
-
-O jogador pode navegar por um menu de componentes organizado por categorias.
-
-Cada componente possui:
-
-* Imagem.
-* Nome.
-* Descrição.
-* Categoria.
-
-Também é possível abrir uma janela de informações para consultar a função de cada componente antes de utilizá-lo.
-
-Os circuitos personalizados salvos pelo jogador também aparecem no menu de componentes.
-
-## Conceitos abordados
-
-O jogo é baseado em conceitos fundamentais de **lógica digital** e **computação**, como:
-
-* Lógica booleana.
-* Valores binários.
-* Portas lógicas.
-* Tabelas-verdade.
-* Sinais digitais.
-* Entrada e saída.
-* Combinação de operações lógicas.
-* Construção de circuitos digitais.
-
-A partir desses conceitos, circuitos maiores podem ser construídos utilizando componentes relativamente simples.
-
-## Construção de circuitos
-
-A principal proposta do jogo é permitir que o jogador experimente livremente com os componentes.
-
-Por exemplo, diferentes portas podem ser combinadas para criar circuitos capazes de realizar operações mais complexas.
-
-Dessa forma, componentes simples podem ser utilizados como blocos de construção para sistemas maiores, aproximando o jogador da forma como circuitos digitais reais são construídos.
-
-## Controles
-
-| Ação | Controle |
-|---|---|
-| Selecionar | Botão esquerdo do mouse |
-| Mover componente | Segurar o botão direito do mouse e arrastar |
-| Mover câmera | Segurar o botão do meio do mouse e arrastar |
-| Zoom in e zoom out | Scroll do mouse |
-| Excluir componente | `Backspace` |
-| Copiar seleção | `C` |
-| Colar seleção | `V` |
-| Alternar ferramenta de seleção | `1` |
-| Alternar ferramenta de cabos | `2` |
-| Ativar/desativar conector ativável | `F` |
-| Criar componente selecionado | `E` |
-| Salvar circuito | `P` |
-
-> Os controles podem sofrer alterações durante o desenvolvimento.
-
-## Tecnologias
-
-* **Unity**
-* **C#**
-
-## Status
-
-O **Logic Gates Sandbox** está atualmente em desenvolvimento.
-
-Novos componentes, ferramentas, sistemas de interação, tutoriais, documentações e possibilidades de construção serão adicionados conforme o projeto evolui.
-
-## Objetivo futuro
-
-A intenção é permitir que o jogador vá além de simplesmente testar portas lógicas e consiga construir **circuitos digitais cada vez mais complexos**, utilizando os componentes básicos como blocos de construção.
-
-A longo prazo, o sandbox pode permitir a construção de sistemas que vão desde circuitos simples até estruturas capazes de representar partes fundamentais de um computador.
+A branch `engine-rewrite` contém a nova implementação baseada na engine própria.
