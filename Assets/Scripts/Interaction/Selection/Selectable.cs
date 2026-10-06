@@ -5,6 +5,7 @@ using UnityEngine;
 public class Selectable : MonoBehaviour
 {
     [SerializeField] private int _priority;
+
     private MouseCollider _collider;
 
     public int Priority => _priority;
@@ -18,10 +19,24 @@ public class Selectable : MonoBehaviour
     {
         _collider = GetComponent<MouseCollider>();
 
+        _collider.OnMouseEnter += HandleMouseEnter;
+        _collider.OnMouseExit += HandleMouseExit;
+
         SelectionManager.RegisterSelectable(this);
     }
 
-    private void Update()
+    private void OnDestroy()
+    {
+        if (_collider != null)
+        {
+            _collider.OnMouseEnter -= HandleMouseEnter;
+            _collider.OnMouseExit -= HandleMouseExit;
+        }
+
+        SelectionManager.UnregisterSelectable(this);
+    }
+
+    private void HandleMouseEnter()
     {
         if (State == SelectionState.Selected)
             return;
@@ -29,15 +44,16 @@ public class Selectable : MonoBehaviour
         if (MouseManager.IsPointerOverUI)
             return;
 
-        if (IsMouseOver && State == SelectionState.Default)
-            State = SelectionState.MouseOver;
-
-        if (!IsMouseOver && State == SelectionState.MouseOver)
-            State = SelectionState.Default;
+        State = SelectionState.MouseOver;
     }
 
-    private void OnDestroy() =>
-        SelectionManager.UnregisterSelectable(this);
+    private void HandleMouseExit()
+    {
+        if (State != SelectionState.MouseOver)
+            return;
+
+        State = SelectionState.Default;
+    }
 
     public bool IntersectsBounds(Bounds bounds) =>
         _collider.Intersects(bounds);
@@ -47,11 +63,10 @@ public class Selectable : MonoBehaviour
         OnSelected?.Invoke();
         State = SelectionState.Selected;
     }
-        
 
     public void Deselect()
     {
         OnDeselected?.Invoke();
         State = SelectionState.Default;
-    } 
+    }
 }

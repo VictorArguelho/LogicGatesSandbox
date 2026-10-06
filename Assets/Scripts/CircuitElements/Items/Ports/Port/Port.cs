@@ -12,6 +12,7 @@ public class Port : MonoBehaviour, IRestorableItem, IRestorable<PortRestoreData>
 
     private MouseCollider _collider;
     private Deletable _deletable;
+    private Vector3 _lastPosition;
 
     public bool CanBeConnectedIn => _canBeConnectedIn;
 
@@ -27,14 +28,27 @@ public class Port : MonoBehaviour, IRestorableItem, IRestorable<PortRestoreData>
         _collider.IsColliding;
 
     public event Action OnDeleted;
+    public event Action OnMoved;
 
     private void Awake()
     {
         _collider = GetComponent<MouseCollider>();
         _deletable = GetComponent<Deletable>();
+        _lastPosition = transform.position;
 
         _deletable.OnDeleted += OnDeletedHandle;
         PortConnectionManager.Instance.RegisterPort(this);
+    }
+
+    private void LateUpdate()
+    {
+        var currentPosition = transform.position;
+
+        if (currentPosition == _lastPosition)
+            return;
+
+        _lastPosition = currentPosition;
+        OnMoved?.Invoke();
     }
 
     private void OnDestroy()
@@ -72,7 +86,7 @@ public class Port : MonoBehaviour, IRestorableItem, IRestorable<PortRestoreData>
         ConnectedPortsAtOut.Add(port);
         port.SetSignal(Signal);
         return true;
-    }  
+    }
 
     public bool TryDisconnectAtOut(Port port)
     {
@@ -100,7 +114,6 @@ public class Port : MonoBehaviour, IRestorableItem, IRestorable<PortRestoreData>
         ConnectedPortAtIn = port;
         return true;
     }
-
 
     private bool TryDisconnectAtIn()
     {

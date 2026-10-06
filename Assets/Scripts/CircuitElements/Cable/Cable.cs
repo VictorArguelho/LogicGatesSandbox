@@ -11,19 +11,22 @@ public class Cable : MonoBehaviour, IRestorable<CableRestoreData>
     [SerializeField] private Color _offSignalSelectedColor = new(0.5f, 0.5f, 0.5f, 0.8f);
 
     [Header("On Signal")]
-    [SerializeField] private Color _onSignalDefaultColor = new(
+    [SerializeField]
+    private Color _onSignalDefaultColor = new(
         0x6D / 255f,
         0xCC / 255f,
         0xE5 / 255f,
         1f
     );
-    [SerializeField] private Color _onSignalMouseOverColor = new(
+    [SerializeField]
+    private Color _onSignalMouseOverColor = new(
         0x4D / 255f,
         0x9B / 255f,
         0xB0 / 255f,
         1f
     );
-    [SerializeField] private Color _onSignalSelectedColor = new(
+    [SerializeField]
+    private Color _onSignalSelectedColor = new(
         0x29 / 255f,
         0x5C / 255f,
         0x6A / 255f,
@@ -56,26 +59,34 @@ public class Cable : MonoBehaviour, IRestorable<CableRestoreData>
         _outPort.OnDeleted += OnPortDeleteHandle;
         _inPort.OnDeleted += OnPortDeleteHandle;
 
+        _outPort.OnMoved += OnPortMoveHandle;
+        _inPort.OnMoved += OnPortMoveHandle;
+
         _deletable.OnDeleted += OnDeleteHandle;
 
-        Refresh();
+        RefreshPosition();
+        RefreshSignal();
     }
-
-    private void Update() =>
-        Refresh();
 
     private void OnDestroy()
     {
         if (_outPort != null)
+        {
             _outPort.OnDeleted -= OnPortDeleteHandle;
+            _outPort.OnMoved -= OnPortMoveHandle;
+        }
 
         if (_inPort != null)
+        {
             _inPort.OnDeleted -= OnPortDeleteHandle;
+            _inPort.OnMoved -= OnPortMoveHandle;
+        }
 
-        _deletable.OnDeleted -= OnDeleteHandle;
+        if (_deletable != null)
+            _deletable.OnDeleted -= OnDeleteHandle;
     }
 
-    private void Refresh()
+    private void RefreshPosition()
     {
         if (_outPort == null || _inPort == null)
             return;
@@ -86,16 +97,24 @@ public class Cable : MonoBehaviour, IRestorable<CableRestoreData>
             (Vector2)_outPort.transform.position + offset * _outPort.transform.localScale,
             (Vector2)_inPort.transform.position + offset * _inPort.transform.localScale
         );
+    }
 
-        if (_outPort.Signal == _lastSignal)
+    private void RefreshSignal()
+    {
+        if (_outPort == null)
             return;
 
-        if (_outPort.Signal)
+        var signal = _outPort.Signal;
+
+        if (signal == _lastSignal)
+            return;
+
+        if (signal)
         {
             _selectableAppearance.DefaultColor = _onSignalDefaultColor;
             _selectableAppearance.MouseOverColor = _onSignalMouseOverColor;
             _selectableAppearance.SelectedColor = _onSignalSelectedColor;
-        } 
+        }
         else
         {
             _selectableAppearance.DefaultColor = _offSignalDefaultColor;
@@ -104,8 +123,11 @@ public class Cable : MonoBehaviour, IRestorable<CableRestoreData>
         }
 
         _selectableAppearance.RefreshColor();
-        _lastSignal = _outPort.Signal;
+        _lastSignal = signal;
     }
+
+    private void OnPortMoveHandle() =>
+        RefreshPosition();
 
     private void OnPortDeleteHandle() =>
         _deletable.Delete();
@@ -114,9 +136,13 @@ public class Cable : MonoBehaviour, IRestorable<CableRestoreData>
     {
         if (_outPort != null && _inPort != null)
             _outPort.TryDisconnectAtOut(_inPort);
+
         Destroy(gameObject);
     }
 
     public CableRestoreData GetRestoreData() =>
-        new(_outPort.GetRestoreData(), _inPort.GetRestoreData());
+        new(
+            _outPort.GetRestoreData(),
+            _inPort.GetRestoreData()
+        );
 }
