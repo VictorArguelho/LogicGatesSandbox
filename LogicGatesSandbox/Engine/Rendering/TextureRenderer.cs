@@ -1,4 +1,5 @@
-﻿using Silk.NET.OpenGL;
+﻿using LogicGatesSandbox.Engine.Components;
+using Silk.NET.OpenGL;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
@@ -79,7 +80,7 @@ public static class TextureRenderer
         _boundTexture = 0;
 
         SetViewProjection(
-            Camera2D.GetViewProjectionMatrix()
+            Camera.GetViewProjectionMatrix()
         );
     }
 
@@ -87,7 +88,7 @@ public static class TextureRenderer
         List<RenderConfig> renderQueue,
         int startIndex,
         int count,
-        Texture texture
+        Resources.Texture texture
     )
     {
         if (count <= 0)
@@ -203,7 +204,7 @@ public static class TextureRenderer
     }
 
     private static void BindTexture(
-        Texture texture
+        Resources.Texture texture
     )
     {
         if (_boundTexture == texture.Id)

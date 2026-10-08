@@ -3,7 +3,7 @@ using Silk.NET.Windowing;
 using StbImageSharp;
 using System.IO;
 
-namespace LogicGatesSandbox.Engine;
+namespace LogicGatesSandbox.Engine.Components;
 
 public static class WindowIcon
 {

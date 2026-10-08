@@ -1,8 +1,8 @@
-﻿using System;
+﻿using LogicGatesSandbox.Engine.Resources;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using LogicGatesSandbox.Engine.Rendering;
 
 namespace LogicGatesSandbox.Engine.Loading;
 

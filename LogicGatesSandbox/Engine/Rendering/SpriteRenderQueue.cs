@@ -1,4 +1,5 @@
-﻿using LogicGatesSandbox.Engine;
+﻿using LogicGatesSandbox.Engine.Components;
+using LogicGatesSandbox.Engine.Resources;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
@@ -106,15 +107,15 @@ public static class SpriteRenderQueue
     )
     {
         Vector2 screenPosition =
-            Camera2D.WorldToScreenPosition(
+            Camera.WorldToScreenPosition(
                 position
             );
 
         Vector2 screenCenter =
-            Camera2D.GetScreenCenter();
+            Camera.GetScreenCenter();
 
         float cameraRadius =
-            Camera2D.GetViewportRadius();
+            Camera.GetViewportRadius();
 
         float spriteRadius =
             GetSpriteRadius(size);

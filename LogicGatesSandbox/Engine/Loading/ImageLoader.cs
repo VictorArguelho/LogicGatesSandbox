@@ -8,7 +8,7 @@ public static class ImageLoader
 {
     private static readonly GL _gl = Engine.GL;
 
-    public static Rendering.Texture LoadImageToTexture(string path)
+    public static Resources.Texture LoadImageToTexture(string path)
     {
         var image = GetImage(path);
         uint handle = _gl.GenTexture();
@@ -37,7 +37,7 @@ public static class ImageLoader
             0
         );
 
-        return new Rendering.Texture(
+        return new Resources.Texture(
             handle,
             image.Width,
             image.Height

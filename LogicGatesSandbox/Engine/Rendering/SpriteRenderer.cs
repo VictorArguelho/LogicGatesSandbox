@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicGatesSandbox.Engine.Resources;
+using System;
 using System.Numerics;
 
 namespace LogicGatesSandbox.Engine.Rendering;

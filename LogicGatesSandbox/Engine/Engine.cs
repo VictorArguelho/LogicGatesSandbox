@@ -1,4 +1,5 @@
-﻿using LogicGatesSandbox.Engine.Loading;
+﻿using LogicGatesSandbox.Engine.Components;
+using LogicGatesSandbox.Engine.Loading;
 using LogicGatesSandbox.Engine.Rendering;
 using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
@@ -35,7 +36,7 @@ public static class Engine
 
             GL.Viewport(window.FramebufferSize);
 
-            Camera2D.Initialize(
+            Camera.Initialize(
                 window.FramebufferSize.X,
                 window.FramebufferSize.Y
             );
@@ -62,7 +63,7 @@ public static class Engine
         {
             GL.Viewport(size);
 
-            Camera2D.Resize(
+            Camera.Resize(
                 size.X,
                 size.Y
             );

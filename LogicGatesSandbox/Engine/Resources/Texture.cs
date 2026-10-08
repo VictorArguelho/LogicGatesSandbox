@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LogicGatesSandbox.Engine.Rendering;
+namespace LogicGatesSandbox.Engine.Resources;
 
 public readonly struct Texture(uint id, int width, int height) : IDisposable
 {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Numerics;
 
-namespace LogicGatesSandbox.Engine.Rendering;
+namespace LogicGatesSandbox.Engine.Components;
 
-public static class Camera2D
+public static class Camera
 {
     public static Vector2 Position { get; set; } = Vector2.Zero;
 
