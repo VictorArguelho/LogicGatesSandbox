@@ -5,9 +5,10 @@
     <TargetFramework>net11.0</TargetFramework>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	  
-	  <ApplicationIcon>Assets\Icon.ico</ApplicationIcon>
-	  <AssemblyName>Logic Gates Sandbox</AssemblyName>
+	<ApplicationIcon>Assets\Icon.ico</ApplicationIcon>
+	<AssemblyName>Logic Gates Sandbox</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

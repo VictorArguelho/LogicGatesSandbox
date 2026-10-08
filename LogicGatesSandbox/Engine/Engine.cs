@@ -1,33 +1,44 @@
-﻿using Silk.NET.OpenGL;
+﻿using LogicGatesSandbox.Engine.Loading;
+using LogicGatesSandbox.Engine.Rendering;
+using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
+using System.Numerics;
 
 namespace LogicGatesSandbox.Engine;
 
 public static class Engine
 {
-    private static GL _gl = null!;
+    public static GL GL { get; private set; } = null!;
 
     public static void Main()
     {
-        WindowOptions options = WindowOptions.Default;
-
-        options.Title = "Logic Gates Sandbox";
-        options.WindowState = WindowState.Fullscreen;
-        options.VSync = false;
-        options.FramesPerSecond = 0;
-
-        using IWindow window = Window.Create(options);
-
+        using IWindow window = Window.Create(GetWindowOptions());
 
         window.Load += () =>
         {
             WindowIcon.Set(window, "Assets/Icon.png");
 
-            _gl = window.CreateOpenGL();
+            GL = window.CreateOpenGL();
 
-            _gl.ClearColor(0.05f, 0.15f, 0.3f, 1.0f);
+            GL.Enable(EnableCap.Blend);
 
-            _gl.Viewport(window.FramebufferSize);
+            GL.BlendFunc(
+                BlendingFactor.SrcAlpha,
+                BlendingFactor.OneMinusSrcAlpha
+            );
+
+            GL.ClearColor(0.05f, 0.15f, 0.3f, 1.0f);
+
+            GL.Viewport(window.FramebufferSize);
+
+            Camera2D.Initialize(
+                window.FramebufferSize.X,
+                window.FramebufferSize.Y
+            );
+
+            TextureRenderer.Initialize();
+
+            SpritesLoader.LoadSprites();
         };
 
         window.Update += deltaTime =>
@@ -36,16 +47,36 @@ public static class Engine
 
         window.Render += deltaTime =>
         {
-            _gl.Clear(ClearBufferMask.ColorBufferBit);
+            GL.Clear(ClearBufferMask.ColorBufferBit);
+
+            RenderManager.Render();
+            SpriteRenderQueue.RenderSprites();
         };
 
         window.FramebufferResize += size =>
         {
-            _gl.Viewport(size);
+            GL.Viewport(size);
+
+            Camera2D.Resize(
+                size.X,
+                size.Y
+            );
         };
 
         window.Run();
 
-        _gl.Dispose();
+        GL.Dispose();
+    }
+
+    private static WindowOptions GetWindowOptions()
+    {
+        var options = WindowOptions.Default;
+
+        options.Title = "Logic Gates Sandbox";
+        options.WindowState = WindowState.Fullscreen;
+        options.VSync = false;
+        options.FramesPerSecond = 0;
+
+        return options;
     }
 }
