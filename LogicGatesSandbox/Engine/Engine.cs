@@ -2,7 +2,6 @@
 using LogicGatesSandbox.Engine.Rendering;
 using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
-using System.Numerics;
 
 namespace LogicGatesSandbox.Engine;
 
@@ -27,7 +26,12 @@ public static class Engine
                 BlendingFactor.OneMinusSrcAlpha
             );
 
-            GL.ClearColor(0.05f, 0.15f, 0.3f, 1.0f);
+            GL.ClearColor(
+                0.05f,
+                0.15f,
+                0.3f,
+                1.0f
+            );
 
             GL.Viewport(window.FramebufferSize);
 
@@ -50,6 +54,7 @@ public static class Engine
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
             RenderManager.Render();
+
             SpriteRenderQueue.RenderSprites();
         };
 
@@ -73,8 +78,11 @@ public static class Engine
         var options = WindowOptions.Default;
 
         options.Title = "Logic Gates Sandbox";
+
         options.WindowState = WindowState.Fullscreen;
+
         options.VSync = false;
+
         options.FramesPerSecond = 0;
 
         return options;
