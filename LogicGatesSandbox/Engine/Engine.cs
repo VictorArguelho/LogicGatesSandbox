@@ -2,6 +2,7 @@
 using LogicGatesSandbox.Engine.Loading;
 using LogicGatesSandbox.Engine.Rendering;
 using LogicGatesSandbox.Engine.Components.Input;
+using LogicGatesSandbox.Engine.Components.Time;
 using Silk.NET.Input;
 using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
@@ -56,8 +57,13 @@ public static class Engine
 
         window.Update += deltaTime =>
         {
+            Time.Update(deltaTime);
+            FPS.Update();
+
             Keyboard.Update();
             Mouse.Update();
+
+            Timer.Update();
         };
 
         window.Render += deltaTime =>
