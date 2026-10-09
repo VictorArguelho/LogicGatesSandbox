@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LogicGatesSandbox.Engine.Components.Time;
+namespace LogicGatesSandbox.Engine.Time;
 
 public class Timer : IDisposable
 {

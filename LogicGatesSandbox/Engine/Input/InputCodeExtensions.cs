@@ -1,6 +1,6 @@
 ﻿using Silk.NET.Input;
 
-namespace LogicGatesSandbox.Engine.Components.Input;
+namespace LogicGatesSandbox.Engine.Input;
 
 public static class InputCodeExtensions
 {

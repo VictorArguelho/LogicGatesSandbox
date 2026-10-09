@@ -1,7 +1,7 @@
 ﻿using Silk.NET.Input;
 using System.Collections.Generic;
 
-namespace LogicGatesSandbox.Engine.Components.Input;
+namespace LogicGatesSandbox.Engine.Input;
 
 public static class Keyboard
 {

@@ -1,4 +1,4 @@
-﻿namespace LogicGatesSandbox.Engine.Components.Time;
+﻿namespace LogicGatesSandbox.Engine.Time;
 
 public static class Time
 {

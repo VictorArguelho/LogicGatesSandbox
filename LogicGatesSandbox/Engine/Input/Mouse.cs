@@ -1,8 +1,9 @@
-﻿using Silk.NET.Input;
+﻿using LogicGatesSandbox.Engine.Components;
+using Silk.NET.Input;
 using System.Collections.Generic;
 using System.Numerics;
 
-namespace LogicGatesSandbox.Engine.Components.Input;
+namespace LogicGatesSandbox.Engine.Input;
 
 public static class Mouse
 {

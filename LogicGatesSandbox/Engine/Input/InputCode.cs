@@ -1,4 +1,4 @@
-﻿namespace LogicGatesSandbox.Engine.Components.Input;
+﻿namespace LogicGatesSandbox.Engine.Input;
 
 public enum InputCode
 {

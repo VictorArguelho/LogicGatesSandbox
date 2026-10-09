@@ -1,12 +1,12 @@
 ﻿using LogicGatesSandbox.Engine.Components;
 using LogicGatesSandbox.Engine.Loading;
 using LogicGatesSandbox.Engine.Rendering;
-using LogicGatesSandbox.Engine.Components.Input;
-using LogicGatesSandbox.Engine.Components.Time;
+using LogicGatesSandbox.Engine.Input;
+using LogicGatesSandbox.Engine.Time;
+
 using Silk.NET.Input;
 using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
-using System;
 
 namespace LogicGatesSandbox.Engine;
 
@@ -57,7 +57,7 @@ public static class Engine
 
         window.Update += deltaTime =>
         {
-            Time.Update(deltaTime);
+            Time.Time.Update(deltaTime);
             FPS.Update();
 
             Keyboard.Update();
