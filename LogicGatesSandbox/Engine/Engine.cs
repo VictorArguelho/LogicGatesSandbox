@@ -1,14 +1,18 @@
 ﻿using LogicGatesSandbox.Engine.Components;
 using LogicGatesSandbox.Engine.Loading;
 using LogicGatesSandbox.Engine.Rendering;
+using LogicGatesSandbox.Engine.Components.Input;
+using Silk.NET.Input;
 using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
+using System;
 
 namespace LogicGatesSandbox.Engine;
 
 public static class Engine
 {
     public static GL GL { get; private set; } = null!;
+    public static IInputContext InputContext { get; private set; } = null!;
 
     public static void Main()
     {
@@ -44,10 +48,16 @@ public static class Engine
             TextureRenderer.Initialize();
 
             SpritesLoader.LoadSprites();
+
+            InputContext = window.CreateInput();
+            Keyboard.Initialize();
+            Mouse.Initialize();
         };
 
         window.Update += deltaTime =>
         {
+            Keyboard.Update();
+            Mouse.Update();
         };
 
         window.Render += deltaTime =>

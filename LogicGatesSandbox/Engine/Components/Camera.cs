@@ -31,9 +31,7 @@ public static class Camera
         Height = height;
     }
 
-    public static Vector2 WorldToScreenPosition(
-        Vector2 worldPosition
-    )
+    public static Vector2 WorldToScreenPosition(Vector2 worldPosition)
     {
         Vector2 relativePosition =
             worldPosition - Position;
@@ -41,6 +39,19 @@ public static class Camera
         return new Vector2(
             relativePosition.X * Zoom + Width / 2.0f,
             relativePosition.Y * Zoom + Height / 2.0f
+        );
+    }
+
+    public static Vector2 ScreenToWorldPosition(Vector2 screenPosition)
+    {
+        Vector2 relativePosition = new(
+            screenPosition.X - Width / 2.0f,
+            screenPosition.Y - Height / 2.0f
+        );
+
+        return new Vector2(
+            relativePosition.X / Zoom + Position.X,
+            relativePosition.Y / Zoom + Position.Y
         );
     }
 
