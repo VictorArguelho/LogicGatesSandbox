@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace LogicGatesSandbox.Engine.Rendering;
 
-public readonly struct RenderConfig (
+internal readonly struct RenderConfig (
     Texture texture,
     Vector2 position,
     Vector2 size,
@@ -12,10 +12,10 @@ public readonly struct RenderConfig (
     int layer
 )
 {
-    public readonly Texture Texture => texture;
-    public readonly Vector2 Position => position;
-    public readonly Vector2 Size => size;
-    public readonly float Rotation => rotation;
-    public readonly Vector4 Color => color;
-    public readonly int Layer => layer;
+    internal readonly Texture Texture => texture;
+    internal readonly Vector2 Position => position;
+    internal readonly Vector2 Size => size;
+    internal readonly float Rotation => rotation;
+    internal readonly Vector4 Color => color;
+    internal readonly int Layer => layer;
 }

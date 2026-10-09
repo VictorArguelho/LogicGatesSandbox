@@ -13,13 +13,13 @@ public static class Keyboard
     private static readonly HashSet<InputCode> _handledFrameDownKeys = [];
     private static readonly HashSet<InputCode> _handledFrameUpKeys = [];
 
-    public static void Initialize()
+    internal static void Initialize()
     {
         _keyboard.KeyDown += KeyDownHandle;
         _keyboard.KeyUp += KeyUpHandle;
     }
 
-    public static void Update()
+    internal static void Update()
     {
         _frameDownKeys.Clear();
         _frameUpKeys.Clear();

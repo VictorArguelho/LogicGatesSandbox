@@ -2,9 +2,9 @@
 
 namespace LogicGatesSandbox.Engine.Input;
 
-public static class InputCodeExtensions
+internal static class InputCodeExtensions
 {
-    public static InputCode ToInputCode(this Key key) =>
+    internal static InputCode ToInputCode(this Key key) =>
         key switch
         {
             Key.A => InputCode.KeyA,
@@ -77,7 +77,7 @@ public static class InputCodeExtensions
             _ => InputCode.None
         };
 
-    public static Key ToKey(this InputCode inputCode) =>
+    internal static Key ToKey(this InputCode inputCode) =>
         inputCode switch
         {
             InputCode.KeyA => Key.A,
@@ -150,7 +150,7 @@ public static class InputCodeExtensions
             _ => Key.Unknown
         };
 
-    public static InputCode ToInputCode(this MouseButton button) =>
+    internal static InputCode ToInputCode(this MouseButton button) =>
         button switch
         {
             MouseButton.Left => InputCode.MouseLeft,
@@ -162,7 +162,7 @@ public static class InputCodeExtensions
             _ => InputCode.None
         };
 
-    public static MouseButton ToMouseButton(this InputCode inputCode) =>
+    internal static MouseButton ToMouseButton(this InputCode inputCode) =>
         inputCode switch
         {
             InputCode.MouseLeft => MouseButton.Left,

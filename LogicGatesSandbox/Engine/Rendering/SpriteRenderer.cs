@@ -43,7 +43,7 @@ public class SpriteRenderer
     : this(texture, position, Vector2.One, 0f, Vector4.One, texture.Width, 0)
     { }
 
-    public void Render() =>
+    internal void Render() =>
         SpriteRenderQueue.AddTextureToRender(
             Texture,
             Position,
@@ -53,7 +53,7 @@ public class SpriteRenderer
             Layer
         );
 
-    private Vector2 GetPixelSize()
+    public Vector2 GetPixelSize()
     {
         Vector2 size = new(
             Texture.Width / (float)PixelsPerUnit,

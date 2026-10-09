@@ -12,10 +12,10 @@ namespace LogicGatesSandbox.Engine;
 
 public static class Engine
 {
-    public static GL GL { get; private set; } = null!;
-    public static IInputContext InputContext { get; private set; } = null!;
+    internal static GL GL { get; private set; } = null!;
+    internal static IInputContext InputContext { get; private set; } = null!;
 
-    public static void Main()
+    public static void Start()
     {
         using IWindow window = Window.Create(GetWindowOptions());
 
@@ -57,7 +57,7 @@ public static class Engine
 
         window.Update += deltaTime =>
         {
-            Time.Time.Update(deltaTime);
+            AppTime.Update(deltaTime);
             FPS.Update();
 
             Keyboard.Update();

@@ -21,14 +21,14 @@ public static class Mouse
     public static Vector2 WorldPosition => Camera.ScreenToWorldPosition(ScreenPosition);
     public static float FrameScroll { get; private set; }
 
-    public static void Initialize()
+    internal static void Initialize()
     {
         _mouse.MouseDown += MouseDownHandle;
         _mouse.MouseUp += MouseUpHandle;
         _mouse.Scroll += ScrollHandle;
     }
 
-    public static void Update()
+    internal static void Update()
     {
         _frameDownButtons.Clear();
         _frameUpButtons.Clear();

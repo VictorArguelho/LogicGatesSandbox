@@ -13,19 +13,13 @@ public static class Camera
 
     public static float Height { get; private set; }
 
-    public static void Initialize(
-        float width,
-        float height
-    )
+    internal static void Initialize(float width, float height)
     {
         Width = width;
         Height = height;
     }
 
-    public static void Resize(
-        float width,
-        float height
-    )
+    internal static void Resize(float width, float height)
     {
         Width = width;
         Height = height;

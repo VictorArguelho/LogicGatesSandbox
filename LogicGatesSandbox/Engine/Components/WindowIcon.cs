@@ -5,9 +5,9 @@ using System.IO;
 
 namespace LogicGatesSandbox.Engine.Components;
 
-public static class WindowIcon
+internal static class WindowIcon
 {
-    public static void Set(IWindow window, string path)
+    internal static void Set(IWindow window, string path)
     {
         using FileStream stream = File.OpenRead(path);
 

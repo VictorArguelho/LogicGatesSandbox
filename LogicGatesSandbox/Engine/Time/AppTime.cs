@@ -1,6 +1,6 @@
 ﻿namespace LogicGatesSandbox.Engine.Time;
 
-public static class Time
+public static class AppTime
 {
     public static ulong FrameCount { get; private set; }
 
@@ -10,7 +10,7 @@ public static class Time
     public static float ElapsedTimeF => (float)ElapsedTimeD;
     public static double ElapsedTimeD { get; private set; }
 
-    public static void Update(double deltaTime)
+    internal static void Update(double deltaTime)
     {
         FrameCount++;
 

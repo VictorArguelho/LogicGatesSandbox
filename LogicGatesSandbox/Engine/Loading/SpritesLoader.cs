@@ -25,7 +25,7 @@ public static class SpritesLoader
         return texture;
     }
 
-    public static void LoadSprites()
+    internal static void LoadSprites()
     {
         foreach (var imagePath in EnumerateImagePaths())
         {
@@ -36,7 +36,7 @@ public static class SpritesLoader
         }
     }
 
-    public static void DisposeSprites()
+    internal static void DisposeSprites()
     {
         foreach (var sprite in _sprites.Values)
             sprite.Dispose();

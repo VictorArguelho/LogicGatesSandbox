@@ -6,7 +6,7 @@ using System.Numerics;
 
 namespace LogicGatesSandbox.Engine.Rendering;
 
-public static class TextureRenderer
+internal static class TextureRenderer
 {
     private static readonly GL _gl = Engine.GL;
 
@@ -36,7 +36,7 @@ public static class TextureRenderer
 
     private static uint _boundTexture;
 
-    public static void Initialize()
+    internal static void Initialize()
     {
         CreateShader();
         CreateBuffers();
@@ -63,7 +63,7 @@ public static class TextureRenderer
         );
     }
 
-    public static void BeginFrame()
+    internal static void BeginFrame()
     {
         _gl.UseProgram(
             _shaderProgram
@@ -84,7 +84,7 @@ public static class TextureRenderer
         );
     }
 
-    public static void RenderBatch(
+    internal static void RenderBatch(
         List<RenderConfig> renderQueue,
         int startIndex,
         int count,

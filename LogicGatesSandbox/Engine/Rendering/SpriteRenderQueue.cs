@@ -6,11 +6,11 @@ using System.Numerics;
 
 namespace LogicGatesSandbox.Engine.Rendering;
 
-public static class SpriteRenderQueue
+internal static class SpriteRenderQueue
 {
     private static readonly List<RenderConfig> _renderQueue = [];
 
-    public static void AddTextureToRender(
+    internal static void AddTextureToRender(
         Texture texture,
         Vector2 position,
         Vector2 size,
@@ -37,7 +37,7 @@ public static class SpriteRenderQueue
         );
     }
 
-    public static void RenderSprites()
+    internal static void RenderSprites()
     {
         if (_renderQueue.Count == 0)
             return;

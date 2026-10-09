@@ -4,11 +4,11 @@ using System.IO;
 
 namespace LogicGatesSandbox.Engine.Loading;
 
-public static class ImageLoader
+internal static class ImageLoader
 {
     private static readonly GL _gl = Engine.GL;
 
-    public static Resources.Texture LoadImageToTexture(string path)
+    internal static Resources.Texture LoadImageToTexture(string path)
     {
         var image = GetImage(path);
         uint handle = _gl.GenTexture();

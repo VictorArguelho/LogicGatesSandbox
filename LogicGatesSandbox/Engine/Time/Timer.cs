@@ -7,7 +7,7 @@ public class Timer : IDisposable
 {
     private static readonly List<Timer> _timers = [];
 
-    public static void Update()
+    internal static void Update()
     {
         for (int i = _timers.Count - 1; i >= 0; i--)
             _timers[i].InternalUpdate();
@@ -44,7 +44,7 @@ public class Timer : IDisposable
 
     private void InternalUpdate()
     {
-        ElapsedTime += Time.DeltaTimeD;
+        ElapsedTime += AppTime.DeltaTimeD;
 
         if (ElapsedTime < Duration)
             return;

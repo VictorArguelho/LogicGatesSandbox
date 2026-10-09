@@ -2,14 +2,14 @@
 
 namespace LogicGatesSandbox.Engine.Rendering;
 
-public static class RenderManager
+internal static class RenderManager
 {
     private static readonly List<SpriteRenderer> _renderers = [];
 
-    public static void RegisterRenderer(SpriteRenderer renderer) =>
+    internal static void RegisterRenderer(SpriteRenderer renderer) =>
         _renderers.Add(renderer);
 
-    public static void Render()
+    internal static void Render()
     {
         foreach (var renderer in _renderers)
             renderer.Render();
